@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react'
 
 import Header from '@/components/Header'
 
-export default function Home() {
+export default function Landing() {
   const { data: session, status } = useSession()
   const loading = status === "loading"
 

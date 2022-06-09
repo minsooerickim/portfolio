@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
-      <Landing/>
+      <Landing />
     </span>
   )
 }
