@@ -8,9 +8,9 @@ export default function Home() {
   const loading = status === "loading"
 
   return (
-    <div>
+    <div className='text-center'>
       <Head>
-        <title>Nextjs | Next-Auth</title>
+        <title>Portfolio | Minsoo Kim</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
