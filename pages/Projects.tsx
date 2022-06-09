@@ -5,8 +5,17 @@ import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } 
 function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Page title='Projects'>
-        <h2>Projects</h2>
-        {projects.map((project: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => {
+        <h1>Projects</h1>
+        <h2>Completed Projects</h2>
+        {projects.filter((p: { completed: Boolean; }) => p.completed).map((project: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => {
+          return (
+            <div key={project.id}>
+              <p>{project.title}</p>
+            </div>
+          )
+        })}
+        <h2>Upcoming Projects</h2>
+        {projects.filter((p: { upcoming: Boolean; }) => p.upcoming).map((project: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => {
           return (
             <div key={project.id}>
               <p>{project.title}</p>
