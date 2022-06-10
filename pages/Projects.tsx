@@ -1,40 +1,38 @@
 import { Page } from '@/components/Page/Page';
+import CurrentProjects from '@/components/Project/CurrentProjects';
+import PastProjects from '@/components/Project/PastProjects';
 import { GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from 'next'
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react'
+import getProjects from './api/projects/current';
 
-function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Projects({ currentProjects, pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Page title='Projects'>
+      <div className="flex flex-col space-y-4">
         <h1>Projects</h1>
-        <h2>Completed Projects</h2>
-        {projects.filter((p: { completed: Boolean; }) => p.completed).map((project: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => {
-          return (
-            <div key={project.id}>
-              <p>{project.title}</p>
-            </div>
-          )
-        })}
-        <h2>Upcoming Projects</h2>
-        {projects.filter((p: { upcoming: Boolean; }) => p.upcoming).map((project: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => {
-          return (
-            <div key={project.id}>
-              <p>{project.title}</p>
-            </div>
-          )
-        })}
+        <div>
+          <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
+        </div>
+        <div>
+          <PastProjects pastProjects={pastProjects} currentProjects={undefined} />
+        </div>
+      </div>
     </Page>
   )
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/projects')
+  const res = await fetch('http://localhost:3000/api/projects/current')
   const data = await res.json()
-  // console.log(data)
+
+  const res1 = await fetch('http://localhost:3000/api/projects/past')
+  const data1 = await res1.json()
+
   return {
     props: {
-      projects: data,
+      currentProjects: data,
+      pastProjects: data1,
     }
   }
 }
 
-export default Projects
