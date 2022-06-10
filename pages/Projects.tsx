@@ -9,13 +9,9 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
   return (
     <Page title='Projects'>
       <div className="flex flex-col space-y-4">
-        <h1>Projects</h1>
-        <div>
-          <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
-        </div>
-        <div>
+        <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
+          <h2>Past</h2>
           <PastProjects pastProjects={pastProjects} currentProjects={undefined} />
-        </div>
       </div>
     </Page>
   )

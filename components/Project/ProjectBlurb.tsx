@@ -21,11 +21,11 @@ const ExternalLinkWrapper = ({ children, link }: LinkProps) => (
     </a>
 )
 const InternalLinkWrapper = ({ children, link }: LinkProps) => (
-    <Link passHref href={link}>
+    // <Link passHref href={link}>
       <span className='cursor-pointer'>
         {children}
       </span>
-    </Link>
+    // </Link>
 )
 interface BodyProps {
     title: string
@@ -39,7 +39,8 @@ const ProjectBody = ({ title, date, description, stack }: BodyProps) => (
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.995}} 
       transition={{ ease: 'easeInOut', duration: 0.1 }}
-      className='group flex flex-col w-full p-5 border-2 border-border rounded-xl bg-primary hover:bg-border'
+      // className='group flex flex-col w-full p-5 border-2 border-border rounded-xl bg-primary hover:bg-border'
+      className='group flex flex-col w-full p-5 rounded-xl bg-primary hover:bg-border'
     >
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
         <h3 className='text-text-secondary group-hover:text-accent'>
