@@ -42,8 +42,8 @@
 
   [data-theme='dark'] {
     --primary: rgb(194 65 12);
-    --secondary: #152A38;
-    --accent: #145361;
+    --secondary: #4a4848;
+    --accent: #474645;
     --accent-secondary: #184659;
     --accent-sub: #1F5A73;
     --card: #193243;
