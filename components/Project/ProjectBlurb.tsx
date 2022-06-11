@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion'
-
+import Link from 'next/link'
+import { FiGithub } from 'react-icons/fi'
+import { CgWebsite } from 'react-icons/cg'
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
     title: string
     date: string
     description: string
     stack: string[]
-    link?: string
+    githubLink?: string
     external?: boolean
+    webLink?: string
 }
 interface LinkProps {
     children: React.ReactNode | React.ReactNode[]
@@ -30,9 +33,11 @@ interface BodyProps {
     date: string
     description: string
     stack: string[]
+    githubLink?: string
+    webLink?: string
   }
   
-const ProjectBody = ({ title, date, description, stack }: BodyProps) => (
+const ProjectBody = ({ title, date, description, stack, githubLink, webLink }: BodyProps) => (
     <motion.div 
       className='group flex flex-col w-full p-5 rounded-lg bg-primary hover:bg-border'
     >
@@ -47,48 +52,72 @@ const ProjectBody = ({ title, date, description, stack }: BodyProps) => (
       <p className='text-base'>
         {description}
       </p>
-      <div className='flex flex-wrap mt-5 gap-1.5 font-semibold text-sm'>
-        { stack.map((tech) => 
-          <div key={tech} className='px-2.5 py-1 rounded-md bg-accent text-accent-darkest bg-orange-700'>
-            {tech}
-          </div>
-        )}
+      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
+        <div className='flex flex-wrap mt-5 gap-1.5 font-semibold text-sm'>
+          { stack.map((tech) => 
+            <div key={tech} className='px-2.5 py-1 rounded-md bg-accent'>
+              {tech}
+            </div>
+          )}
+        </div>
+        <div className='flex flex-wrap mt-5 gap-1.5'>
+          {webLink && <motion.a 
+            whileHover={{ scale: 1.2 }} 
+            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            whileTap={{ scale: 0.995}} 
+            href={webLink} className='z-2'>
+            <CgWebsite />
+          </motion.a>}
+          {githubLink && <motion.a 
+            whileHover={{ scale: 1.2 }} 
+            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            whileTap={{ scale: 0.995}} 
+            href={githubLink} className='z-2'>
+            <FiGithub />
+          </motion.a>}
+        </div>
       </div>
     </motion.div>
   )
-export default function ProjectBlurb({ link, title, date, description, stack, external }: BlurbProps) {
+export default function ProjectBlurb({ githubLink, webLink, title, date, description, stack, external }: BlurbProps) {
     return (
         <>
         {
-            link ?
+            githubLink ?
             ( external
                 ?
-                <ExternalLinkWrapper link={link}>
+                <ExternalLinkWrapper link={githubLink}>
                     <ProjectBody
-                    title={title}
-                    date={date}
-                    description={description}
-                    stack={stack}
+                      title={title}
+                      date={date}
+                      description={description}
+                      stack={stack}
+                      githubLink={githubLink}
+                      webLink={webLink}
                     />
                 </ExternalLinkWrapper>
                 :
-                <InternalLinkWrapper link={link}>
+                <InternalLinkWrapper link={githubLink}>
                     <ProjectBody
-                    title={title}
-                    date={date}
-                    description={description}
-                    stack={stack}
+                      title={title}
+                      date={date}
+                      description={description}
+                      stack={stack}
+                      githubLink={githubLink}
+                      webLink={webLink}
                     />
                 </InternalLinkWrapper>
                 )
             :
             <span className='flex cursor-default'>
                 <ProjectBody
-                title={title}
-                date={date}
-                description={description}
-                stack={stack}
-                />
+                  title={title}
+                  date={date}
+                  description={description}
+                  stack={stack}
+                  githubLink={githubLink}
+                  webLink={webLink}
+                />       
             </span>
         }
         </>

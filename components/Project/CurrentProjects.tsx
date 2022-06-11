@@ -60,19 +60,20 @@ export function Item({ project }) {
         whileHover={{ scale: 1.03 }} 
         transition={{ ease: 'easeInOut', duration: 0.1 }}
         whileTap={{ scale: 0.995}} 
-        className="bg-slate-200"  
+        className="bg-accent"  
         onClick={toggleOpen} 
         initial={{ borderRadius: 10 }}
       >
           <ProjectBlurb
               key={project.id}
-              link={project.link}
+              githubLink={project.githubLink}
+              webLink={project.webLink}
               title={project.title}
               date={project.date}
               description={project.description}
               stack={project.stack}
           />
-          {isOpen && <ProjectDetails details={project.details}/>}
+          {isOpen && <ProjectDetails details={project.details} imgs={[]}/>}
       </motion.li>
     );
 }
