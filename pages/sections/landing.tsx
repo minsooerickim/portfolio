@@ -9,8 +9,8 @@ export default function Landing() {
   const loading = status === "loading"
 
   return(
-    <div className="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-blue-500">
-      <img src="https://i.imgur.com/dYcYQ7E.png" className="w-full" />
+    <div className="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-orange-700">
+      <img src="/assets/Colored-Shapes.svg" className="w-full" />
       <div className="flex justify-center -mt-8">
           <img src="https://i.imgur.com/8Km9tLL.jpg" className="rounded-full border-solid border-white border-2 -mt-3"/>
       </div>
