@@ -9,10 +9,10 @@ export default function Home() {
   const { data: session, status } = useSession()
 
   return (
-    <Page title='Home'>
-      <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
-        <Landing />
-      </span>
-    </Page>
+    <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
+      <Page title='Home'>
+          <Landing />
+      </Page>
+    </span>
   )
 }
