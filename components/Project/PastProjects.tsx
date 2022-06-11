@@ -40,7 +40,7 @@ export default function PastProjects({ pastProjects }: InferGetStaticPropsType<t
             className="flex-1 p-4 space-y-4 max-w-xl"
           >
               {pastProjects.map((project: Key) => (
-                  <motion.div variants={item}>
+                  <motion.div key={project} variants={item}>
                     <Item project={project}/>
                   </motion.div>
               ))}
@@ -52,7 +52,7 @@ export default function PastProjects({ pastProjects }: InferGetStaticPropsType<t
 export function Item({ project }) {
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = () => setIsOpen(!isOpen);
-    console.log(project.imgs)
+    
     return (
       <motion.li 
         layout

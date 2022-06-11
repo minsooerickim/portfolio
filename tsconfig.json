@@ -36,6 +36,6 @@
     "pages/api/auth/[...nextauth].js",
     "pages/index.js",
     "next.config.js"
-, "components/Project/CurrentProjects.js", "components/Project/ProjectDetails.js"  ],
+, "components/Project/CurrentProjects.js", "components/Project/ProjectDetails.js", "components/NavBar"  ],
   "exclude": ["node_modules"]
 }

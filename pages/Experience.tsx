@@ -7,11 +7,13 @@ import { InferGetStaticPropsType } from 'next';
 
 export default function Experience({ currentExperiences, pastExperiences }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <Page title='Experience'>
-            <h1>Experience</h1>
-            <CurrentExperience currentExperiences={currentExperiences} pastExperiences={undefined} />
-            <PastExperience pastExperiences={pastExperiences} currentExperiences={undefined} />
-        </Page>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
+            <Page title='Experience'>
+                <h1>Experience</h1>
+                <CurrentExperience currentExperiences={currentExperiences} pastExperiences={undefined} />
+                <PastExperience pastExperiences={pastExperiences} currentExperiences={undefined} />
+            </Page>
+        </span>
     )
 }
 

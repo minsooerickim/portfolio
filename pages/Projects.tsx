@@ -6,12 +6,14 @@ import { InferGetStaticPropsType } from 'next'
 
 export default function Projects({ currentProjects, pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Page title='Projects'>
-      <motion.div layout className="grid grid-cols-2 gap-20">
-        <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
-        <PastProjects pastProjects={pastProjects} currentProjects={undefined} />
-      </motion.div>
-    </Page>
+    <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
+      <Page title='Projects'>
+        <motion.div layout className="grid grid-cols-2 gap-20">
+          <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
+          <PastProjects pastProjects={pastProjects} currentProjects={undefined} />
+        </motion.div>
+      </Page>
+    </span>
   )
 }
 

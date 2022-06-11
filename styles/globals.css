@@ -2,20 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  background: linear-gradient(250deg, #8194eb, #ffffff);
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@layer base {
+  :root {
+    /* default light theme */
+    --primary: rgb(194 65 12);
+    --secondary: #F3FBFF;
+    --accent: #FFF5EB;
+    --accent-secondary: #FFE4C8; /* same color for card buttons */
+    --accent-sub: #F2CAA0;
+    --card: #FFF;
+    --text: #453535;
+    --highlight: #9DC300;
+    --highlight-dark: #88A900;
+    --overlay: #00000059;
+    --sub: #B9CCDC;
+    --sub-secondary: #A1B3C4;
+    --sub-highlight: #92A6B9;
+    --sub-bright: #5B7690;
+    --pattern: url('/assets/circuit-board.svg');
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  [data-theme='light'] {
+    --primary: rgb(194 65 12);
+    --secondary: #F3FBFF;
+    --accent: #FFF5EB;
+    --accent-secondary: #FFE4C8;
+    --accent-sub: #F2CAA0;
+    --card: #FFF;
+    --text: #453535;
+    --highlight: #9DC300;
+    --highlight-dark: #88A900;
+    --overlay: #00000059;
+    --sub: #B9CCDC;
+    --sub-secondary: #A1B3C4;
+    --sub-highlight: #92A6B9;
+    --sub-bright: #5B7690;
+    --pattern: url('/assets/Hexagon.svg');
+  }
 
-* {
-  box-sizing: border-box;
+  [data-theme='dark'] {
+    --primary: rgb(194 65 12);
+    --secondary: #152A38;
+    --accent: #145361;
+    --accent-secondary: #184659;
+    --accent-sub: #1F5A73;
+    --card: #193243;
+    --text: #F2F3F4;
+    --highlight: #FB9A36;
+    --highlight-dark: #E37C22;
+    --overlay: #00000080;
+    --sub: #375264;
+    --sub-secondary: #2B475C;
+    --sub-highlight: #3F5D72;
+    --sub-bright: #6F8CA0;
+    --pattern: url('/assets/Hexagon.svg');
+  }
+
+  h1 {
+    @apply my-3;
+    @apply text-5xl;
+    @apply md:text-6xl;
+    @apply font-extrabold;
+  }
+
+  h2 {
+    @apply my-2;
+    @apply text-4xl;
+    @apply md:text-5xl;
+    @apply font-semibold;
+  }
+
+  h3 {
+    @apply my-2;
+    @apply text-2xl;
+    @apply md:text-3xl;
+    @apply font-medium;
+  }
+
+  h4 {
+    @apply my-2;
+    @apply text-xl;
+    @apply md:text-2xl;
+  }
+
+  p {
+    @apply my-2;
+    @apply text-base;
+    @apply md:text-lg;
+  }
+
+  li {
+    @apply text-base;
+    @apply md:text-lg;
+  }
+
+  button {
+    @apply bg-accent-secondary;
+  }
 }

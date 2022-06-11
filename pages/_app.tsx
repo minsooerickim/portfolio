@@ -1,10 +1,11 @@
 import { SessionProvider } from "next-auth/react"
 import type { AppProps } from 'next/app'
 import { DefaultSeo } from "next-seo"
+import { ThemeProvider } from 'next-themes'
 
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
-import { Nav } from "@/components/Nav"
+import { Nav } from "@/components/NavBar/Nav"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -20,8 +21,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <SessionProvider session={pageProps.session}>
-        <Nav />
+        <ThemeProvider defaultTheme = 'system'>
+          <Nav />
           <Component {...pageProps} />
+        </ThemeProvider>
       </SessionProvider>
     </>
   )

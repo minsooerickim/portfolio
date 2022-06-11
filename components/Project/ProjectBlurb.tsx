@@ -34,7 +34,7 @@ interface BodyProps {
   
 const ProjectBody = ({ title, date, description, stack }: BodyProps) => (
     <motion.div 
-      className='group flex flex-col w-full p-5 rounded-xl bg-primary hover:bg-border'
+      className='group flex flex-col w-full p-5 rounded-lg bg-primary hover:bg-border'
     >
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
         <h3 className='text-text-secondary group-hover:text-accent'>
@@ -49,7 +49,7 @@ const ProjectBody = ({ title, date, description, stack }: BodyProps) => (
       </p>
       <div className='flex flex-wrap mt-5 gap-1.5 font-semibold text-sm'>
         { stack.map((tech) => 
-          <div className='px-2.5 py-1 rounded-md bg-accent text-accent-darkest bg-orange-400'>
+          <div key={tech} className='px-2.5 py-1 rounded-md bg-accent text-accent-darkest bg-orange-700'>
             {tech}
           </div>
         )}
