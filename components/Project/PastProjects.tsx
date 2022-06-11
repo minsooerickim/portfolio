@@ -2,24 +2,75 @@ import { getStaticProps } from "@/pages/Projects";
 import { InferGetStaticPropsType } from "next";
 import { Key } from "react";
 import ProjectBlurb from "./ProjectBlurb";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ProjectDetails from "./ProjectDetails";
 
-function PastProjects({ pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
-    return (
-        <>
-            {pastProjects.map((project: { id: Key; link: string; title: string; date: string; description: string; stack: string[] }) => {
-                return (
-                    <ProjectBlurb
-                        key={project.id}
-                        link={project.link}
-                        title={project.title}
-                        date={project.date}
-                        description={project.description}
-                        stack={project.stack}
-                    />
-                )
-            })}
-        </>
-    )
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: .3,
+      }
+    }
+  }
+  
+const item = {
+    hidden: { 
+        opacity: 0,
+        x: -50,
+    },
+    show: { 
+        opacity: 1,
+        transition: {
+        duration: 0.8,
+        }
+    }
 }
 
-export default PastProjects
+export default function PastProjects({ pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
+    return (
+        <motion.ul>
+          <h2>Past</h2>
+          <motion.div       
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="flex-1 p-4 space-y-4 max-w-xl"
+          >
+              {pastProjects.map((project: Key) => (
+                  <motion.div variants={item}>
+                    <Item project={project}/>
+                  </motion.div>
+              ))}
+          </motion.div>
+        </motion.ul>
+      )
+}
+
+export function Item({ project }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleOpen = () => setIsOpen(!isOpen);
+    console.log(project.imgs)
+    return (
+      <motion.li 
+        layout
+        whileHover={{ scale: 1.03 }} 
+        transition={{ ease: 'easeInOut', duration: 0.1 }}
+        whileTap={{ scale: 0.995}} 
+        className="bg-slate-200"  
+        onClick={toggleOpen} 
+        initial={{ borderRadius: 10 }}>
+          <ProjectBlurb
+              key={project.id}
+              link={project.link}
+              title={project.title}
+              date={project.date}
+              description={project.description}
+              stack={project.stack}
+          />
+          {isOpen && <ProjectDetails imgs={project.imgs} details={project.details}/>}
+      </motion.li>
+    );
+}
