@@ -12,13 +12,13 @@ export default function Landing() {
     <div className="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-orange-700">
       <img src="/assets/Colored-Shapes.svg" className="w-full" />
       <div className="flex justify-center -mt-8">
-          <img src="https://i.imgur.com/8Km9tLL.jpg" className="rounded-full border-solid border-white border-2 -mt-3"/>
+          <img src="https://i.imgur.com/y72AJR2.png" className="w-6/12 rounded-full border-solid  border-2 -mt-3"/>
       </div>
     <div className="text-center px-3 pb-6 pt-2">
-      <h3 className="text-white text-sm bold font-sans">Minsoo Kim</h3>
-      <p className="mt-2 font-sans font-light text-white">Hello, I love coding!</p>
+      <h3 className="text-sm bold font-sans">Minsoo Kim</h3>
+      <p className="mt-2 font-sans font-light">Hello, I love coding!</p>
     </div>
-      <div className="flex justify-center pb-3 text-white">
+      <div className="flex justify-center pb-3">
         <div className="text-center mr-3 border-r pr-3">
           <h2>4</h2>
           <span>Projects</span>
