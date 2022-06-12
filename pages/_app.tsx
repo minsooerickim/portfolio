@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <SessionProvider session={pageProps.session}>
-        <ThemeProvider defaultTheme = 'system'>
+        <ThemeProvider>
           <Nav />
           <Component {...pageProps} />
         </ThemeProvider>
