@@ -7,7 +7,6 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { QuestionIcon } from './Icons';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -44,7 +43,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = React.useState<string | false>('panel1');
+  // const [expanded, setExpanded] = React.useState<string | false>('panel1'); //panel1 open when refreshed
+  const [expanded, setExpanded] = React.useState<string | false>('');
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -62,8 +62,6 @@ export default function CustomizedAccordions() {
                     <Typography className='text-secondaryNormalText'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                         malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -75,8 +73,6 @@ export default function CustomizedAccordions() {
                     <Typography className='text-secondaryNormalText'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                         malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -88,8 +84,6 @@ export default function CustomizedAccordions() {
                     <Typography className='text-secondaryNormalText'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                         malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
