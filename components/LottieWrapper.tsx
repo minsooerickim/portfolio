@@ -1,7 +1,7 @@
 import Lottie from 'react-lottie'
 
-export const LottieWrapper = ({ animationData }) => {
-  const heroOptions = {
+export const LottieWrapper = ({ animationData, height, width }) => {
+  const defaultOptions  = {
     loop: true,
     autoplay: true,
     animationData: animationData,
@@ -9,5 +9,5 @@ export const LottieWrapper = ({ animationData }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   }
-  return <Lottie options={heroOptions} height="60%" width="60%" />
+  return <Lottie options={defaultOptions} height={height} width={width} />
 }

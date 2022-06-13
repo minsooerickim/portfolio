@@ -5,22 +5,19 @@ import { useSession, signIn } from 'next-auth/react'
 import Avatar from '@mui/material/Avatar';
 import Accordian from '@/components/Accordian'
 import ProfileCard from '@/components/ProfileCard'
-import { motion } from 'framer-motion';
 import { LottieWrapper } from '@/components/LottieWrapper';
 
-import hi from '../../lotties/hi'
+import hi from '../../lotties/hi.json'
 
 export default function Landing() {
   return(
-    <Page title='Landing'>
-      <div className='grid grid-cols-2'>
-        <ProfileCard />
-        <div>
-          <LottieWrapper animationData={hi} />
-          <div className=' max-h-fit'><Accordian /></div>
-        </div>
+    <div className='grid grid-cols-2 px-14 items-center'>
+      <div className='border-r-2 border-text'><ProfileCard /></div>
+      <div>
+        <LottieWrapper animationData={hi} height={'60%'} width={'60%'}/>
+        <div className=' max-h-fit'><Accordian /></div>
       </div>
-    </Page>
+    </div>
   )
   {/* return (
     <Page title='Home'>

@@ -18,7 +18,7 @@ export function Layout({ children, title, description }: Props) {
     <div>
       <NextSeo title={title} description={description} openGraph={{ title, description }} />
       <motion.main 
-        className='flex flex-col justify-center items-center w-full min-h-screen'
+        className='flex flex-col justify-center items-center w-full'
         initial="hidden"
         animate="enter"
         variants={variants}

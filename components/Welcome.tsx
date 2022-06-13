@@ -14,21 +14,12 @@ export default function Welcome() {
             {loading && <div>Loading...</div>}
             {
             session &&
-                <div className='justify-center flex'>
+                <div className='justify-center flex items-center'>
                     <Avatar alt="Profile Picture" src={session.user!.image!} />
                     
                     {/* <p className='pl-2'>Welcome, {session.user!.name ?? session.user!.email}</p> */}
                     <p className='pl-2'>Welcome {(session.user.name !== 'undefined') ? session.user.name : session.user.email } </p>
                 </div>
-            }
-            {
-            !session &&
-            <>
-                <p>
-                Sign In to <span className="text-text">Interact!</span>
-                </p>
-                <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignin} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign in</motion.a>
-            </>
             }
         </div>
     )

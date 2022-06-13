@@ -5,7 +5,6 @@ interface ProjectDetailProps {
   imgs: string[]
 }
 export default function ProjectDetails({ details, imgs }: ProjectDetailProps) {
-  console.log(imgs)
   return (
     <div className="p-4">
       <motion.p className="p-4">{details}</motion.p>

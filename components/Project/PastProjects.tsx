@@ -33,7 +33,7 @@ const item = {
 export default function PastProjects({ pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <motion.ul>
-          <h2 className="text-text">Past</h2>
+          <h2 className="text-text flex justify-center">Past</h2>
           <motion.div       
             variants={container}
             initial="hidden"

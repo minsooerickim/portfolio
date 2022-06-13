@@ -3,6 +3,8 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import Link from 'next/link';
 
 import Switch from '@/components/NavBar/switch'
+import { LottieWrapper } from '../LottieWrapper';
+import profile from '../../lotties/profile.json'
 
 export function Nav() {
     const { data: session } = useSession();
@@ -16,10 +18,10 @@ export function Nav() {
         signOut()
     }
     return(
-        <header className="bg-background lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2 sticky top-0 z-50">
+        <header className="bg-background lg:px-16 px-6 flex flex-wrap items-center lg:py-0 sticky top-0 z-50">
             <div className="flex-1 flex justify-between items-center">
             <a href="/" className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
-                {/* <img className="rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400" src="https://i.imgur.com/y72AJR2.png" alt="Minsoo Kim"/> */}
+                <LottieWrapper animationData={profile} width={'30%'} height={'30%'}/>
                 <p className='text-normalText font-bold'>Minsoo Kim</p>
             </a>
             </div>
