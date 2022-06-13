@@ -6,42 +6,21 @@ import Avatar from '@mui/material/Avatar';
 import Accordian from '@/components/Accordian'
 import ProfileCard from '@/components/ProfileCard'
 import { motion } from 'framer-motion';
+import { LottieWrapper } from '@/components/LottieWrapper';
+
+import hi from '../../lotties/hi'
 
 export default function Landing() {
-  const { data: session, status } = useSession()
-  const loading = status === "loading"
-  const handleSignin = (e: { preventDefault: () => void; }) => {
-    e.preventDefault()
-    signIn()
-  }
   return(
-    <div>
-      <div className='justify-center flex'>
-        {loading && <div>Loading...</div>}
-        {
-          session &&
-              <div className='justify-center flex'>
-                <Avatar alt="Profile Picture" src={session.user!.image!} />
-                
-                {/* <p className='pl-2'>Welcome, {session.user!.name ?? session.user!.email}</p> */}
-                <p className='pl-2'>Welcome {(session.user.name !== 'undefined') ? session.user.name : session.user.email } </p>
-              </div>
-        }
-        {
-          !session &&
-          <>
-            <p>
-              Sign In to <span className="text-text">Interact!</span>
-            </p>
-            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignin} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign in</motion.a>
-          </>
-        }
-      </div>
+    <Page title='Landing'>
       <div className='grid grid-cols-2'>
         <ProfileCard />
-        <Accordian />
+        <div>
+          <LottieWrapper animationData={hi} />
+          <div className=' max-h-fit'><Accordian /></div>
+        </div>
       </div>
-   </div>
+    </Page>
   )
   {/* return (
     <Page title='Home'>
