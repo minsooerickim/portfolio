@@ -5,7 +5,7 @@ import ProjectBlurb from "./ProjectBlurb";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectDetails from "./ProjectDetails";
-
+import Skeleton from '@/components/Skeleton'
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -33,7 +33,7 @@ const item = {
 export default function CurrentProjects({ currentProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
       <motion.ul>
-        <h2 className="text-text">Current</h2>
+        <h2 className="text-text flex justify-center">Current</h2>
         <motion.div       
           variants={container}
           initial="hidden"
@@ -42,7 +42,7 @@ export default function CurrentProjects({ currentProjects }: InferGetStaticProps
         >
             {currentProjects.map((project: Key) => (
                 <motion.div key={project} variants={item}>
-                  <Item project={project}/>
+                  {project ? <Item project={project}/> : <Skeleton />}
                 </motion.div>
             ))}
         </motion.div>
