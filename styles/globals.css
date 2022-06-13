@@ -7,10 +7,10 @@
     /* default theme (light) */
     --primary: #ccdbdc;
     --card: #193243;
-    --text: #7de2d1;
+    --text: #339989;
     --overlay: #00000080;
     --sub: #375264;
-    --sub-secondary: #339989;
+    --sub-secondary: #7de2d1;
     --sub-highlight: #3F5D72;
     --sub-bright: #6F8CA0;
     --background: #fffafb;
@@ -23,10 +23,10 @@
   [data-theme='light'] {
     --primary: #ccdbdc;
     --card: #FFF;
-    --text: #7de2d1;
+    --text: #339989;
     --overlay: #00000059;
     --sub: #B9CCDC;
-    --sub-secondary: #339989;
+    --sub-secondary: #7de2d1;
     --sub-highlight: #92A6B9;
     --sub-bright: #5B7690;
     --background: #fffafb;
@@ -39,10 +39,10 @@
   [data-theme='dark'] {
     --primary: #ccdbdc;
     --card: #2b2c28;
-    --text: #7de2d1;
+    --text: #339989;
     --overlay: #00000080;
     --sub: #375264;
-    --sub-secondary: #339989;
+    --sub-secondary: #7de2d1;
     --sub-highlight: #3F5D72;
     --sub-bright: #6F8CA0;
     --background: #131515;
@@ -51,8 +51,11 @@
     --secondaryNormalText: #ccdbdc;
     /* --pattern: url('/assets/Hexagon.svg'); */
   }
+  /* used to debug */
+  /* * { border: 1px solid red; } */
   body {
-    background: var(--background)
+    max-height: 100vh;
+    background: var(--background);
   }
   h1 {
     @apply my-3;
