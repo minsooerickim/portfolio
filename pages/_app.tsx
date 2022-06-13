@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes'
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 import { Nav } from "@/components/NavBar/Nav"
+import Footer from "@/components/Footer"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider>
           <Nav />
           <Component {...pageProps} />
+          {/* <Footer /> */}
         </ThemeProvider>
       </SessionProvider>
     </>
