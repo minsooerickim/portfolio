@@ -21,15 +21,10 @@ module.exports = {
       },
       colors: {
         primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
         accent: {
           DEFAULT: 'var(--accent)',
           secondary: 'var(--accent-secondary)',
           sub: 'var(--accent-sub)',
-        },
-        highlight: {
-          DEFAULT: 'var(--highlight)',
-          dark: 'var(--highlight-dark)',
         },
         card: 'var(--card)',
         text: 'var(--text)',
@@ -39,7 +34,11 @@ module.exports = {
           secondary: 'var(--sub-secondary)',
           highlight: 'var(--sub-highlight)',
           bright: 'var(--sub-bright)',
-        }
+        },
+        background: 'var(--background)',
+        normalText: 'var(--normalText)',
+        secondaryNormalText: 'var(--secondaryNormalText)',
+        subBackground: 'var(--subBackground)',
       },
       transitionProperty: {
         'size': 'width, max-width, height, max-height, margin, padding',

@@ -4,14 +4,14 @@ import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const mutheme = createTheme({
+const muTheme = createTheme({
   status: {
     danger: '#e53e3e',
   },
   palette: {
     primary: {
-      main: '#C2410C',
-      darker: '#C2410C',
+      main: '#7de2d1',
+      darker: '#339989',
     },
     neutral: {
       main: '#64748B',
@@ -34,16 +34,16 @@ export default function ColorSwitches() {
     if (!mounted) return null
 
     return (
-        <ThemeProvider theme={mutheme}>
-        <motion.button className='bg-transparent'>
-            <>
-            <Switch 
-                checked={checked}
-                onChange={handleChange}
-                defaultChecked color="primary" 
-            />
-            </>
-        </motion.button>
+        <ThemeProvider theme={muTheme}>
+          <motion.button className='bg-transparent'>
+              <>
+              <Switch
+                  checked={checked}
+                  onChange={handleChange}
+                  defaultChecked color="primary" 
+              />
+              </>
+          </motion.button>
         </ThemeProvider>
     );
 }

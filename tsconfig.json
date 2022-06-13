@@ -33,9 +33,9 @@
     "**/*.tsx",
     "pages/api/entry/create.js",
     "lib/mongodb.js",
-    "pages/api/auth/[...nextauth].js",
+    "pages/api/auth/[...nextauth].ts",
     "pages/index.js",
     "next.config.js"
-, "components/Project/CurrentProjects.js", "components/Project/ProjectDetails.js", "components/NavBar"  ],
+, "components/Project/CurrentProjects.js", "components/Project/ProjectDetails.js", "components/NavBar", "pages/sections/landing.js"  ],
   "exclude": ["node_modules"]
 }

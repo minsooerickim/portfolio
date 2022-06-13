@@ -39,23 +39,23 @@ interface BodyProps {
   
 const ProjectBody = ({ title, date, description, stack, githubLink, webLink }: BodyProps) => (
     <motion.div 
-      className='group flex flex-col w-full p-5 rounded-lg bg-primary hover:bg-border'
+      className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
     >
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
-        <h3 className='text-text-secondary group-hover:text-accent'>
+        <h3 className='text-text-normalText'>
           {title}
         </h3>
-        <div className='text-sm'>
+        <div className='text-sm text-secondaryNormalText'>
           {date}
         </div>
       </div>
-      <p className='text-base'>
+      <p className='text-base text-secondaryNormalText'>
         {description}
       </p>
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
         <div className='flex flex-wrap mt-5 gap-1.5 font-semibold text-sm'>
           { stack.map((tech) => 
-            <div key={tech} className='px-2.5 py-1 rounded-md bg-accent'>
+            <div key={tech} className='px-2.5 py-1 rounded-md bg-text text-sub-secondary'>
               {tech}
             </div>
           )}

@@ -4,60 +4,56 @@
 
 @layer base {
   :root {
-    /* default theme (dark) */
-    --primary: rgb(194 65 12);
-    --secondary: #4a4848;
-    --accent: #474645;
-    --accent-secondary: #184659;
-    --accent-sub: #1F5A73;
+    /* default theme (light) */
+    --primary: #ccdbdc;
     --card: #193243;
-    --text: #F2F3F4;
-    --highlight: #FB9A36;
-    --highlight-dark: #E37C22;
+    --text: #7de2d1;
     --overlay: #00000080;
     --sub: #375264;
-    --sub-secondary: #2B475C;
+    --sub-secondary: #339989;
     --sub-highlight: #3F5D72;
     --sub-bright: #6F8CA0;
-    --pattern: url('/assets/Hexagon.svg');
+    --background: #fffafb;
+    --subBackground: #f0f3f5;
+    --normalText: #000000;
+    --secondaryNormalText: #2b2c28;
+    /* --pattern: url('/assets/Hexagon.svg'); */
   }
 
   [data-theme='light'] {
-    --primary: rgb(194 65 12);
-    --secondary: #F3FBFF;
-    --accent: #FFF5EB;
-    --accent-secondary: #FFE4C8;
-    --accent-sub: #302f2e;
+    --primary: #ccdbdc;
     --card: #FFF;
-    --text: #453535;
-    --highlight: #9DC300;
-    --highlight-dark: #88A900;
+    --text: #7de2d1;
     --overlay: #00000059;
     --sub: #B9CCDC;
-    --sub-secondary: #A1B3C4;
+    --sub-secondary: #339989;
     --sub-highlight: #92A6B9;
     --sub-bright: #5B7690;
-    --pattern: url('/assets/Hexagon.svg');
+    --background: #fffafb;
+    --subBackground: #f7f7f7;
+    --normalText: #000000;
+    --secondaryNormalText: #2b2c28;
+    /* --pattern: url('/assets/Hexagon.svg'); */
   }
-
+  
   [data-theme='dark'] {
-    --primary: rgb(194 65 12);
-    --secondary: #4a4848;
-    --accent: #474645;
-    --accent-secondary: #184659;
-    --accent-sub: #1F5A73;
-    --card: #193243;
-    --text: #F2F3F4;
-    --highlight: #FB9A36;
-    --highlight-dark: #E37C22;
+    --primary: #ccdbdc;
+    --card: #2b2c28;
+    --text: #7de2d1;
     --overlay: #00000080;
     --sub: #375264;
-    --sub-secondary: #2B475C;
+    --sub-secondary: #339989;
     --sub-highlight: #3F5D72;
     --sub-bright: #6F8CA0;
-    --pattern: url('/assets/Hexagon.svg');
+    --background: #131515;
+    --subBackground: #1e1f1c;
+    --normalText: #FFFFFF;
+    --secondaryNormalText: #ccdbdc;
+    /* --pattern: url('/assets/Hexagon.svg'); */
   }
-
+  body {
+    background: var(--background)
+  }
   h1 {
     @apply my-3;
     @apply text-5xl;
@@ -95,9 +91,5 @@
   li {
     @apply text-base;
     @apply md:text-lg;
-  }
-
-  button {
-    @apply bg-accent-secondary;
   }
 }

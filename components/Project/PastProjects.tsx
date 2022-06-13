@@ -33,7 +33,7 @@ const item = {
 export default function PastProjects({ pastProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <motion.ul>
-          <h2>Past</h2>
+          <h2 className="text-text">Past</h2>
           <motion.div       
             variants={container}
             initial="hidden"
@@ -60,7 +60,7 @@ export function Item({ project }) {
         whileHover={{ scale: 1.03 }} 
         transition={{ ease: 'easeInOut', duration: 0.1 }}
         whileTap={{ scale: 0.995}} 
-        className="bg-accent"  
+        className="bg-subBackground"  
         onClick={toggleOpen} 
         initial={{ borderRadius: 10 }}>
           <ProjectBlurb
