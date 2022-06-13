@@ -10,7 +10,7 @@ const muTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#7de2d1',
+      main: '#339989',
       darker: '#339989',
     },
     neutral: {
