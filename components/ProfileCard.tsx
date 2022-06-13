@@ -1,4 +1,7 @@
 import { useSession } from "next-auth/react"
+import { LottieWrapper } from "./LottieWrapper"
+import rocket from '../lotties/rocket.json'
+import tools from '../lotties/tools.json'
 
 export default function Landing() {
     const { data: session, status } = useSession()
@@ -16,14 +19,24 @@ export default function Landing() {
                     <p className="mt-2 font-light text-secondaryNormalText">Feel free to reach out to me at minsooerickim@gmail.com</p>
                 </div>
                 <div className="flex justify-center pb-3">
-                <div className="text-center mr-3 border-r pr-3">
-                    <h2 className="text-text">4</h2>
-                    <span className="text-text">Projects</span>
-                </div>
-                <div className="text-center">
-                    <h2 className="text-text">20</h2>
-                    <span className="text-text">Tools</span>
-                </div>
+                    <div className="text-center mr-3 border-r pr-3">
+                        <div className="inline-block">
+                            <LottieWrapper animationData={rocket} height={80} width={80}/>
+                        </div>
+                        <div className=" inline-block">
+                            <h2 className="text-text">4</h2>
+                            <span className="text-normal">Projects</span>
+                        </div>
+                    </div>
+                    <div className="text-center">
+                        <div className=" inline-block">
+                            <h2 className="text-text">20</h2>
+                            <span className="text-normal">Tools</span>
+                        </div>
+                        <div className="inline-block">
+                            <LottieWrapper animationData={tools} height={70} width={70}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
