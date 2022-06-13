@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
 import { FiGithub } from 'react-icons/fi'
 import { CgWebsite } from 'react-icons/cg'
+import { LottieWrapperClick } from '../LottieWrapperClick'
+import like from '../../lotties/like.json'
+import { useState } from 'react'
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
     title: string
@@ -36,14 +39,31 @@ interface BodyProps {
     webLink?: string
   }
   
-const ProjectBody = ({ title, date, description, stack, githubLink, webLink }: BodyProps) => (
+
+function ProjectBody ({ title, date, description, stack, githubLink, webLink }: BodyProps) {
+  const [isPaused, setisPaused] = useState(true)
+  const handleClick = (event) => {
+    event.stopPropagation()
+    setisPaused(false)
+    setTimeout(() => {setisPaused(true)}, 1000)
+  }
+    return(
     <motion.div 
       className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
     >
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
-        <h3 className='text-text-normalText'>
-          {title}
-        </h3>
+        <div className='flex items-center'>
+          <h3 className='text-text-normalText items-center'>
+            {title}
+          </h3>
+          <motion.button 
+            whileHover={{ scale: 1.2 }} 
+            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            whileTap={{ scale: 0.995}} 
+            onClick={handleClick}>
+              <LottieWrapperClick animationData={like} height={60} width={60} isStopped={false} isPaused={isPaused}/>
+          </motion.button>
+        </div>
         <div className='text-sm text-secondaryNormalText'>
           {date}
         </div>
@@ -59,25 +79,32 @@ const ProjectBody = ({ title, date, description, stack, githubLink, webLink }: B
             </div>
           )}
         </div>
-        <div className='flex flex-wrap mt-5 gap-1.5'>
+        <div className='flex flex-wrap mt-5 gap-1.5 items-center'>
           {webLink && <motion.a 
             whileHover={{ scale: 1.2 }} 
             transition={{ ease: 'easeInOut', duration: 0.1 }}
             whileTap={{ scale: 0.995}} 
-            href={webLink} className='z-2'>
+            href={webLink} 
+            className='z-2'
+            onClick={(event) => event.stopPropagation()}
+          >
             <CgWebsite />
           </motion.a>}
           {githubLink && <motion.a 
             whileHover={{ scale: 1.2 }} 
             transition={{ ease: 'easeInOut', duration: 0.1 }}
             whileTap={{ scale: 0.995}} 
-            href={githubLink} className='z-2'>
+            href={githubLink} 
+            className='z-2'
+            onClick={(event) => event.stopPropagation()}
+          >
             <FiGithub />
           </motion.a>}
         </div>
       </div>
     </motion.div>
-  )
+    )
+}
 export default function ProjectBlurb({ githubLink, webLink, title, date, description, stack, external }: BlurbProps) {
     return (
         <>
