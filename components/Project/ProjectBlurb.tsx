@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { FiGithub } from 'react-icons/fi'
 import { CgWebsite } from 'react-icons/cg'
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
