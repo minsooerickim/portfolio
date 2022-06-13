@@ -12,6 +12,23 @@ export default async function auth(req, res) {
         GoogleProvider({
           clientId: process.env.GOOGLE_CLIENT_ID,
           clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          profile(profile: {
+            sub: string
+            name: string
+            given_name: string
+            family_name: string
+            email: string
+            picture: string
+          }) {
+            return {
+              id: profile.sub,
+              name: profile.name,
+              firstname: profile.given_name,
+              lastname: profile.family_name,
+              email: profile.email,
+              image: profile.picture,
+            }
+          },
         }),
         GitHubProvider({
           clientId: process.env.GITHUB_ID,
@@ -30,21 +47,11 @@ export default async function auth(req, res) {
         }),
       ],
       callbacks: {
-        async signIn({ user, account, profile }) {
-          if (account.provider === 'google') {
-            // first and last name attributes are available for GoogleProfile
-            // -- https://github.com/nextauthjs/next-auth/blob/main/packages/next-auth/src/providers/google.ts
-            user.name = {
-              first: String(profile.given_name),
-              last: String(profile.family_name)
-            }
-          }
-          return true
-        },
         async session({ session, user }) {
-          session.user.uid = user.uid
-          session.user.gid = user.gid
-          session.user.name = user.name
+          // Send properties to the client, like an access_token from a provider.
+          session.user.firstname = String(user.name.first)
+          session.user.lastname = String(user.name.last)
+          session.user.id = user.id
           return session
         },
       },
