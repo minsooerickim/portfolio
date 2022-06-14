@@ -9,13 +9,10 @@ export default async function updateLikes(req, res) {
     // console.log(userData)
     const isConnected = await clientPromise;
     const db = isConnected.db(process.env.MONGODB_DB);
-  
-    await db.collection("currentProjects").updateOne(
-      { title: reqData.title },
-      {
-        $inc: { likes: 1 },
-        $push: { likedUsers: userData.id },
-      }
-    )
-    res.status(200).json({ message: "Successfully updated like count!"})
+
+    const result = await db.collection("currentProjects").find(
+    { 
+        $and: [ {likedUsers: userData.id}, {title: reqData.title}]
+    }).toArray();
+    result.length > 0 ? res.status(200).json({ found: true}) : res.status(200).json({ found: false})
 }

@@ -47,7 +47,7 @@ interface BodyProps {
   }
 
 function ProjectBody ({ title, date, description, stack, githubLink, webLink, likes, likedUsers }: BodyProps) {
-  const updateLikes = async({title}) => {
+  const updateLikes = async() => {
     const res = await fetch('http://localhost:3000/api/projects/updateLikes', {
       method: 'PUT',
       headers: {
@@ -63,40 +63,35 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
     }
   }
 
-  const [likedFlag, setLikedFlag] = useState(true)
   const [isPaused, setisPaused] = useState(true)
 
-  const checkLiked = async() => {
-    const session = await getSession()
-    !session ? alert('you must be signed in to like the project!') :
-    likedUsers.indexOf(session.user.id) > -1 ? setLikedFlag(true) : setLikedFlag(false)
-    // {likedUsers.map((userId) => {
-    //   if (userId == session.user.id) {
-    //     console.log(userId)
-    //     console.log(session.user.id)
-    //     setLikedFlag(true);
-    //   } 
-    // })}
-    // if(!likedFlag) {
-    //   setLikedFlag(false)
-    // } else {
-    //   alert('you must be signed in to like the projects!')
-    // }
-  }
+  const handleClick = async(event) => {
+    event.stopPropagation()
 
-  const handleClick = (event) => {
-    checkLiked();
-    if (!likedFlag) {
-      updateLikes({title})
-      setTimeout(() => {setisPaused(true)}, 1000)
-      event.stopPropagation()
-      setisPaused(false)
+    const res = await fetch('http://localhost:3000/api/projects/checkLiked', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({title}),
+    })
+    const result = await res.json()
+    if (res.status === 200) {
+      console.log('Got LikedUsers!')
     } else {
-      alert('you already liked the projects!; implement unlike feature')
-      // event.stopPropagation()
+      console.log('Uh oh. Something went wrong.')
     }
-  } 
-  
+    if (result.found) {
+      alert('you already liked this project!; implement unlike feature')
+      setisPaused(true)
+    } else if (!result.found) {
+      console.log('shouldn')
+      updateLikes()
+      setisPaused(false)
+      setTimeout(() => {setisPaused(true)}, 1000)
+    }
+
+  }
   return(
     <motion.div 
       className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
@@ -111,7 +106,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
             transition={{ ease: 'easeInOut', duration: 0.1 }}
             whileTap={{ scale: 0.995}} 
             onClick={handleClick}>
-              <LottieWrapperClick animationData={like} height={60} width={60} isStopped={false} isPaused={isPaused}/>
+              <LottieWrapperClick animationData={like} height={60} width={60} isPaused={isPaused}/>
           </motion.button><span className=' pr-10'>{likes}</span>
         </div>
         <div className='text-sm text-secondaryNormalText'>
