@@ -71,6 +71,8 @@ export function Item({ project }) {
               date={project.date}
               description={project.description}
               stack={project.stack}
+              likes={project.likes}
+              likedUsers={project.likedUsers}
           />
           {isOpen && <ProjectDetails imgs={project.imgs} details={project.details}/>}
       </motion.li>

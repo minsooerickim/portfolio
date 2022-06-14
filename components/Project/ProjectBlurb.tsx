@@ -4,6 +4,9 @@ import { CgWebsite } from 'react-icons/cg'
 import { LottieWrapperClick } from '../LottieWrapperClick'
 import like from '../../lotties/like.json'
 import { useState } from 'react'
+import { Int32 } from 'mongodb'
+import { getSession } from 'next-auth/react'
+
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
     title: string
@@ -13,6 +16,8 @@ interface BlurbProps {
     githubLink?: string
     external?: boolean
     webLink?: string
+    likes: Int32
+    likedUsers: string[]
 }
 interface LinkProps {
     children: React.ReactNode | React.ReactNode[]
@@ -37,17 +42,62 @@ interface BodyProps {
     stack: string[]
     githubLink?: string
     webLink?: string
+    likes: Int32
+    likedUsers: string[]
   }
-  
 
-function ProjectBody ({ title, date, description, stack, githubLink, webLink }: BodyProps) {
-  const [isPaused, setisPaused] = useState(true)
-  const handleClick = (event) => {
-    event.stopPropagation()
-    setisPaused(false)
-    setTimeout(() => {setisPaused(true)}, 1000)
+function ProjectBody ({ title, date, description, stack, githubLink, webLink, likes, likedUsers }: BodyProps) {
+  const updateLikes = async({title}) => {
+    const res = await fetch('http://localhost:3000/api/projects/updateLikes', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({title}),
+    })
+    await res.json()
+    if (res.status === 200) {
+      console.log('Updated Likes!')
+    } else {
+      console.log('Uh oh. Something went wrong.')
+    }
   }
-    return(
+
+  const [likedFlag, setLikedFlag] = useState(true)
+  const [isPaused, setisPaused] = useState(true)
+
+  const checkLiked = async() => {
+    const session = await getSession()
+    !session ? alert('you must be signed in to like the project!') :
+    likedUsers.indexOf(session.user.id) > -1 ? setLikedFlag(true) : setLikedFlag(false)
+    // {likedUsers.map((userId) => {
+    //   if (userId == session.user.id) {
+    //     console.log(userId)
+    //     console.log(session.user.id)
+    //     setLikedFlag(true);
+    //   } 
+    // })}
+    // if(!likedFlag) {
+    //   setLikedFlag(false)
+    // } else {
+    //   alert('you must be signed in to like the projects!')
+    // }
+  }
+
+  const handleClick = (event) => {
+    checkLiked();
+    if (!likedFlag) {
+      updateLikes({title})
+      setTimeout(() => {setisPaused(true)}, 1000)
+      event.stopPropagation()
+      setisPaused(false)
+    } else {
+      alert('you already liked the projects!; implement unlike feature')
+      // event.stopPropagation()
+    }
+  } 
+  
+  return(
     <motion.div 
       className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
     >
@@ -62,7 +112,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink }: 
             whileTap={{ scale: 0.995}} 
             onClick={handleClick}>
               <LottieWrapperClick animationData={like} height={60} width={60} isStopped={false} isPaused={isPaused}/>
-          </motion.button>
+          </motion.button><span className=' pr-10'>{likes}</span>
         </div>
         <div className='text-sm text-secondaryNormalText'>
           {date}
@@ -103,9 +153,9 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink }: 
         </div>
       </div>
     </motion.div>
-    )
+  )
 }
-export default function ProjectBlurb({ githubLink, webLink, title, date, description, stack, external }: BlurbProps) {
+export default function ProjectBlurb({ githubLink, webLink, title, date, description, stack, external, likes, likedUsers }: BlurbProps) {
     return (
         <>
         {
@@ -120,6 +170,8 @@ export default function ProjectBlurb({ githubLink, webLink, title, date, descrip
                       stack={stack}
                       githubLink={githubLink}
                       webLink={webLink}
+                      likes={likes}
+                      likedUsers={likedUsers}
                     />
                 </ExternalLinkWrapper>
                 :
@@ -131,6 +183,8 @@ export default function ProjectBlurb({ githubLink, webLink, title, date, descrip
                       stack={stack}
                       githubLink={githubLink}
                       webLink={webLink}
+                      likes={likes}
+                      likedUsers={likedUsers}
                     />
                 </InternalLinkWrapper>
                 )
@@ -143,6 +197,8 @@ export default function ProjectBlurb({ githubLink, webLink, title, date, descrip
                   stack={stack}
                   githubLink={githubLink}
                   webLink={webLink}
+                  likes={likes}
+                  likedUsers={likedUsers}
                 />       
             </span>
         }
