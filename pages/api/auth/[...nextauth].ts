@@ -47,7 +47,7 @@ export default async function auth(req, res) {
         }),
       ],
       callbacks: {
-        async session({ session, user }) {
+        async session({ session, user }: any) {
           // Send properties to the client, like an access_token from a provider.
           session.user.firstname = String(user.name.first)
           session.user.lastname = String(user.name.last)

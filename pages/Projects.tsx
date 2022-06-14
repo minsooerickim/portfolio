@@ -28,7 +28,6 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
 export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/api/projects/current')
   const data = await res.json()
-
   const res1 = await fetch('http://localhost:3000/api/projects/past')
   const data1 = await res1.json()
 
