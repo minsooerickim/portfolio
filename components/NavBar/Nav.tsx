@@ -43,8 +43,8 @@ export function Nav() {
                         whileTap={{ scale: 0.995 }}
                         transition={{ ease: 'easeInOut', duration: 0.1 }}
                         className="cursor-pointer lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-text"><Link href="/Experience"><span className='text-text'>Experience</span></Link></motion.li>
-                    {session && <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignout} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign out</motion.a>  }
-                    {!session && <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignin} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign in</motion.a>  }
+                    {session && <motion.a whileHover={{ scale: 1.05, backgroundColor: '#278274' }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignout} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign out</motion.a>  }
+                    {!session && <motion.a whileHover={{ scale: 1.05, backgroundColor: '#278274' }} whileTap={{ scale: 0.995 }} transition={{ ease: 'easeInOut', duration: 0.1 }} onClick={handleSignin} className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer">Sign in</motion.a>  }
                     <div className="p-4">
                         {/* <ThemeButton /> */}
                         <Switch/>
