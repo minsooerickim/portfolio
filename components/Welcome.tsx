@@ -18,7 +18,7 @@ export default function Welcome() {
                     <Avatar alt="Profile Picture" src={session.user!.image!} />
                     
                     {/* <p className='pl-2'>Welcome, {session.user!.name ?? session.user!.email}</p> */}
-                    <p className='pl-2'>Welcome {(session.user.firstname !== 'undefined') ? session.user.firstname : session.user.name } </p>
+                    <p className='pl-2'>Welcome {(session.user.firstname !== 'undefined') ? session.user.firstname : session.user.name }! </p>
                 </div>
             }
         </div>
