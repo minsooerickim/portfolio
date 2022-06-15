@@ -8,44 +8,40 @@ import ProfileCard from '@/components/ProfileCard'
 import { LottieWrapper } from '@/components/LottieWrapper';
 
 import hi from '../../lotties/hi.json'
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: .2,
+    }
+  }
+}
+
+const item = {
+  hidden: { 
+    opacity: 0,
+    x: '-100vw',
+  },
+  show: { 
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    }
+  }
+}
 
 export default function Landing() {
   return(
-    <div className='grid grid-cols-2 px-14 items-center'>
-      <div className='border-r-2 border-text'><ProfileCard /></div>
-      <div>
+    <motion.div className='grid grid-cols-2 px-14 items-center' variants={container} initial="hidden" animate="show">
+      <motion.div className='border-r-2 border-text' variants={item}><ProfileCard /></motion.div>
+      <motion.div variants={item}>
         <LottieWrapper animationData={hi} height={'60%'} width={'60%'}/>
         <div className=' max-h-fit'><Accordian /></div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
-  {/* return (
-    <Page title='Home'>
-      <div className='text-center'>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Header />
-        <main>
-          <div>
-            {loading && <div>Loading...</div>}
-            {
-              session &&
-                <>
-                <p style={{ marginBottom: '10px' }}> Welcome, {session.user!.name ?? session.user!.email}</p> <br />
-                <img src={session.user!.image!} alt="" />
-                </>
-              }
-            {
-              !session &&
-                <>
-                <img src="https://cdn.dribbble.com/users/759083/screenshots/6915953/2.gif" alt="" />
-                <p>GIF by <a href="https://dribbble.com/shots/6915953-Another-man-down/attachments/6915953-Another-man-down?mode=media">Another man</a> </p>
-                </>
-            }
-          </div>
-        </main>
-      </div>
-    </Page>
-  ) */}
 }
