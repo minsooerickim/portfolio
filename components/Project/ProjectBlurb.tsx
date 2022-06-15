@@ -5,7 +5,7 @@ import { LottieWrapperClick } from '../LottieWrapperClick'
 import like from '../../lotties/like.json'
 import { useState } from 'react'
 import { Int32 } from 'mongodb'
-import { getSession } from 'next-auth/react'
+import router from 'next/router'
 
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
@@ -47,6 +47,10 @@ interface BodyProps {
   }
 
 function ProjectBody ({ title, date, description, stack, githubLink, webLink, likes, likedUsers }: BodyProps) {
+  const refreshData = () => { //used to update likes taking advantage of SSR
+    router.replace(router.asPath);
+  }
+  
   const updateLikes = async() => {
     const res = await fetch('http://localhost:3000/api/projects/updateLikes', {
       method: 'PUT',
@@ -85,13 +89,13 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
       alert('you already liked this project!; implement unlike feature')
       setisPaused(true)
     } else if (!result.found) {
-      console.log('shouldn')
-      updateLikes()
+      await updateLikes()
       setisPaused(false)
       setTimeout(() => {setisPaused(true)}, 1000)
+      refreshData()
     }
-
   }
+
   return(
     <motion.div 
       className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
