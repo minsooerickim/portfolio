@@ -31,7 +31,7 @@ export default function BasicSpeedDial() {
     } else if(name=="GitHub"){
       window.open ('https://github.com/minsooerickim', '_ blank')
     } else if(name=="Email"){
-      window.open ('mailto:minsooerickim@gmail.com') // make it not open a new tab
+      window.open ('mailto:minsooerickim@gmail.com', '_self') // make it not open a new tab
     }
   }
   return (
