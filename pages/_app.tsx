@@ -7,6 +7,7 @@ import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 import { Nav } from "@/components/NavBar/Nav"
 import Footer from "@/components/Footer"
+import SpeedDial from '@/components/SpeedDial'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider>
           <Nav />
           <Component {...pageProps} />
+          <div className='fixed right-0 bottom-0 p-4'><SpeedDial /></div>
           {/* <Footer /> */}
         </ThemeProvider>
       </SessionProvider>

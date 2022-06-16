@@ -16,7 +16,6 @@ export default function Home() {
       <div className='justify-center flex align-center p-20'><Welcome /></div>
       <div className='flex flex-col w-full items-center'>
           <Landing />
-          <div className='fixed right-0 bottom-0 p-4'><SpeedDial /></div>
       </div>
     </>
     // </span>
