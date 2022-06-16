@@ -3,24 +3,29 @@ import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
-import Router from 'next/router'
-
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import ArticleIcon from '@mui/icons-material/Article';
 const actions = [
-  { icon: <FileCopyIcon />, name: 'Resume' },
-  { icon: <SaveIcon />, name: 'LinkedIn' },
-  { icon: <PrintIcon />, name: 'GitHub' },
-  { icon: <ShareIcon />, name: 'Email' },
+  { icon: <ArticleIcon />, name: 'Resume' },
+  { icon: <LinkedInIcon />, name: 'LinkedIn' },
+  { icon: <GitHubIcon />, name: 'GitHub' },
+  { icon: <EmailIcon />, name: 'Email' },
 ];
 
 export default function BasicSpeedDial() {
+  function downloadFile(filePath){
+    var link=document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    link.click();
+  }
+
   const handleClick = (e: { preventDefault: () => void; }, name) => {
     console.log(name)
     if (name=="Resume"){
-
+      downloadFile('/resume.pdf')
     } else if(name=="LinkedIn"){
       window.open ('https://www.linkedin.com/in/minsookime/', '_ blank')
     } else if(name=="GitHub"){
@@ -35,6 +40,13 @@ export default function BasicSpeedDial() {
         ariaLabel="SpeedDial"
         sx={{ position: 'absolute', bottom: 16, right: 16 }}
         icon={<SpeedDialIcon sx={{'& .MuiSvgIcon-root': {color: '#339989'}}}/>}
+        FabProps={{
+          sx: {
+            '&:hover': {
+              bgcolor: 'transparent',
+            }
+          }
+        }}
       >
         {actions.map((action) => (
           <SpeedDialAction
@@ -43,6 +55,11 @@ export default function BasicSpeedDial() {
             tooltipTitle={action.name}
             onClick={(e) => {
               handleClick(e, action.name)
+            }}
+            FabProps={{
+              sx: {
+                color: '#339989',
+              }
             }}
           />
         ))}
