@@ -16,7 +16,7 @@ export default function Landing() {
                 </div>
                 <div className="text-center px-3 pb-6 pt-2">
                     <p className="mt-2 text-md font-bold text-normalText">CS @ UC Riverside</p>
-                    <p className="mt-2 font-light text-secondaryNormalText">Feel free to reach out to me at minsooerickim@gmail.com</p>
+                    <p className="mt-2 font-light text-secondaryNormalText">Feel free to reach out to <a className='text-text' href='mailto:minsooerickim@gmail.com'>me</a>!</p>
                 </div>
                 <div className="flex justify-center pb-3">
                     <div className="text-center mr-3 border-r pr-3">
