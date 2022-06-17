@@ -13,7 +13,7 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
       <div className='flex justify-center md:p-20 text-normalText'>
           <h1>Projects</h1>
       </div>
-      <Page title='Projects'>
+      <Page title='Projects' description='list of my current/past projects'>
         <motion.div className="md:grid md:grid-cols-3 gap-20">
           <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
           <div><div className='hidden resize-none md:flex'><LottieWrapper animationData={project} height={500} width={500}/></div></div>

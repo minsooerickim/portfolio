@@ -2,7 +2,7 @@ import { Page } from '@/components/Page/Page'
 
 export default function verifySignin() {
   return (
-    <Page title='verify sign in'>
+    <Page title='sign-in' description='verify sign in'>
       <section className='flex flex-col w-full my-24 justify-center items-center text-center'>
         <h1>Verify Email</h1>
         <p className='mb-10'>

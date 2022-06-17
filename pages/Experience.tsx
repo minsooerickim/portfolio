@@ -15,7 +15,7 @@ export default function Experience({ currentExperiences, pastExperiences }: Infe
             <div className='flex justify-center md:p-20 text-normalText'>
                 <h1>Experience</h1>
             </div>
-            <Page title='Experience'>
+            <Page title='Experience' description='list of my current/past experiences'>
                 <motion.div layout className='md:grid md:grid-cols-3 gap-20'>
                     <CurrentExperience currentExperiences={currentExperiences} pastExperiences={undefined} />
                     <div><div className='hidden resize-none md:flex'><LottieWrapper animationData={experience} height={500} width={500}/></div></div>
