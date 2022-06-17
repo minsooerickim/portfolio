@@ -90,12 +90,12 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
       console.log('Uh oh. Something went wrong.')
     }
     if (result.found) {
-      alert('you already liked this project!; implement unlike feature')
+      alert('you already liked this project! You can only like a project once!!')
       setisPaused(true)
     } else if (!result.found) {
       await updateLikes()
       setisPaused(false)
-      setTimeout(() => {setisPaused(true)}, 1000)
+      setTimeout(() => {setisPaused(true)}, 1100)
       refreshData()
     }
   }
