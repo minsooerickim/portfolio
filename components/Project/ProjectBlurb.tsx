@@ -17,7 +17,7 @@ interface BlurbProps {
     githubLink?: string
     external?: boolean
     webLink?: string
-    likes: Int32
+    likes: number
     likedUsers: string[]
 }
 interface LinkProps {
@@ -43,7 +43,7 @@ interface BodyProps {
     stack: string[]
     githubLink?: string
     webLink?: string
-    likes: Int32
+    likes: number
     likedUsers: string[]
   }
 

@@ -5,17 +5,9 @@ import { motion } from 'framer-motion';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const muTheme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
   palette: {
     primary: {
       main: '#339989',
-      darker: '#339989',
-    },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
     },
   },
 });

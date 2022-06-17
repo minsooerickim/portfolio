@@ -1,14 +1,9 @@
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Avatar from '@mui/material/Avatar';
-import { motion } from "framer-motion";
 
 export default function Welcome() {
     const { data: session, status } = useSession()
     const loading = status === "loading"
-    const handleSignin = (e: { preventDefault: () => void; }) => {
-      e.preventDefault()
-      signIn()
-    }
     return (
         <div className='justify-center flex'>
             {loading && <div>Loading...</div>}
