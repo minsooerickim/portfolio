@@ -26,9 +26,9 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
 }
 
 export async function getStaticProps() {
-  const res = await fetch('${process.env.NEXTAUTH_URL}/api/projects/current')
+  const res = await fetch('https://' + process.env.NEXTAUTH_URL + '/api/projects/current')
   const data = await res.json()
-  const res1 = await fetch('${process.env.NEXTAUTH_URL}/api/projects/past')
+  const res1 = await fetch('https://' + process.env.NEXTAUTH_URL + '/api/projects/past')
   const data1 = await res1.json()
 
   return {
