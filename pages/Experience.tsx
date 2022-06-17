@@ -28,10 +28,10 @@ export default function Experience({ currentExperiences, pastExperiences }: Infe
 }
 
 export async function getStaticProps() {
-    const res = await fetch('https://' + process.env.NEXTAUTH_URL + '/api/experience/current')
+    const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/experience/current')
     const data = await res.json()
     
-    const res1 = await fetch('https://' + process.env.NEXTAUTH_URL + '/api/experience/past')
+    const res1 = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/experience/past')
     const data1 = await res1.json()
 
     return {
