@@ -26,9 +26,23 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/current')
+  const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/current', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+      Accept: "application/json; charset=UTF-8",
+    },
+  })
   const data = await res.json()
-  const res1 = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/past')
+  const res1 = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/past', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+      Accept: "application/json; charset=UTF-8",
+    },
+  })
   const data1 = await res1.json()
 
   return {
