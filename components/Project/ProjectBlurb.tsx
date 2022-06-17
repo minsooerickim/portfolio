@@ -6,6 +6,7 @@ import like from '../../lotties/like.json'
 import { useState } from 'react'
 import { Int32 } from 'mongodb'
 import router from 'next/router'
+import { useSession } from 'next-auth/react'
 
 // this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
@@ -47,6 +48,7 @@ interface BodyProps {
   }
 
 function ProjectBody ({ title, date, description, stack, githubLink, webLink, likes, likedUsers }: BodyProps) {
+  const { data: session, status } = useSession()
   const refreshData = () => { //used to update likes taking advantage of SSR
     router.replace(router.asPath);
   }
@@ -71,6 +73,8 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
 
   const handleClick = async(event) => {
     event.stopPropagation()
+    if (status == "unauthenticated") { alert('You must be signed in to like the projects!'); return; }
+
 
     const res = await fetch('http://localhost:3000/api/projects/checkLiked', {
       method: 'PUT',
