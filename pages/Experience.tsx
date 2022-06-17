@@ -28,10 +28,10 @@ export default function Experience({ currentExperiences, pastExperiences }: Infe
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:3000/api/experience/current')
+    const res = await fetch(process.env.NEXTAUTH_URL + '/api/experience/current')
     const data = await res.json()
     
-    const res1 = await fetch('http://localhost:3000/api/experience/past')
+    const res1 = await fetch(process.env.NEXTAUTH_URL + '/api/experience/past')
     const data1 = await res1.json()
 
     return {

@@ -54,7 +54,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
   }
   
   const updateLikes = async() => {
-    const res = await fetch('http://localhost:3000/api/projects/updateLikes', {
+    const res = await fetch(process.env.NEXTAUTH_URL + '/api/projects/updateLikes', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
     if (status == "unauthenticated") { alert('You must be signed in to like the projects!'); return; }
 
 
-    const res = await fetch('http://localhost:3000/api/projects/checkLiked', {
+    const res = await fetch(process.env.NEXTAUTH_URL + '/api/projects/checkLiked', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
