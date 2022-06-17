@@ -102,9 +102,9 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
 
   return(
     <motion.div 
-      className='drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border'
+      className='drop-shadow-xl flex-col p-5 rounded-lg bg-card hover:bg-border resize-none'
     >
-      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 font-semibold'>
+      <div className='flex flex-col mb-3 font-semibold'>
         <div className='flex items-center'>
           <h3 className='text-text-normalText items-center'>
             {title}

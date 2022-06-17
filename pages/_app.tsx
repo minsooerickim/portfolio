@@ -8,6 +8,7 @@ import '../styles/globals.css'
 import { Nav } from "@/components/NavBar/Nav"
 import Footer from "@/components/Footer"
 import SpeedDial from '@/components/SpeedDial'
+import MobileNav from "@/components/NavBar/MobileNav"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -26,7 +27,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider>
           <Nav />
           <Component {...pageProps} />
-          <div className='fixed right-0 bottom-0 p-4'><SpeedDial /></div>
+          <div className='fixed right-0 bottom-0 pb-14 md:p-4 z-10'><SpeedDial /></div>
+          <div className="flex md:hidden justify-center sticky bottom-0 pb-2">
+            <MobileNav />
+          </div>
           {/* <Footer /> */}
         </ThemeProvider>
       </SessionProvider>

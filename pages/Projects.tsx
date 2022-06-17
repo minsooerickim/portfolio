@@ -10,13 +10,13 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
   return (
     // <span className='flex justify-center px-40 w-full bg-pattern bg-repeat bg-contain'>
     <div>
-      <div className='flex justify-center p-20 text-normalText'>
+      <div className='flex justify-center md:p-20 text-normalText'>
           <h1>Projects</h1>
       </div>
       <Page title='Projects'>
-        <motion.div layout className="grid grid-cols-3 gap-20">
+        <motion.div className="md:grid md:grid-cols-3 gap-20">
           <CurrentProjects currentProjects={currentProjects} pastProjects={undefined} />
-          <div><div className='resize-none flex'><LottieWrapper animationData={project} height={500} width={500}/></div></div>
+          <div><div className='hidden resize-none md:flex'><LottieWrapper animationData={project} height={500} width={500}/></div></div>
           <PastProjects pastProjects={pastProjects} currentProjects={undefined} />
         </motion.div>
       </Page>

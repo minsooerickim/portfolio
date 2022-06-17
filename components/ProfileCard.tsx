@@ -9,7 +9,7 @@ export default function Landing() {
   
     return(
         <div className="flex justify-center items-center">
-            <div className="w-6/12 rounded-3xl overflow-hidden shadow-xl bg-card ">
+            <div className="md:w-6/12 rounded-3xl overflow-hidden shadow-xl bg-card ">
                 <img src="/assets/Colored-Shapes.svg" className=""/>
                 <div className="flex justify-center -mt-8">
                     <img src="https://i.imgur.com/y72AJR2.png" className="w-6/12 rounded-full border-solid  border-2 -mt-3"/>
@@ -19,7 +19,7 @@ export default function Landing() {
                     <p className="mt-2 font-light text-secondaryNormalText">Feel free to reach out to <a className='text-text' href='mailto:minsooerickim@gmail.com'>me</a>!</p>
                 </div>
                 <div className="flex justify-center pb-3">
-                    <div className="text-center mr-3 border-r pr-3">
+                    <div className="text-center mr-3 md:border-r pr-3">
                         <div className="inline-block">
                             <LottieWrapper animationData={rocket} height={80} width={80}/>
                         </div>

@@ -36,11 +36,11 @@ const item = {
 
 export default function Landing() {
   return(
-    <motion.div className='grid grid-cols-2 px-14 items-center' variants={container} initial="hidden" animate="show">
-      <motion.div className='border-r-2 border-text' variants={item}><ProfileCard /></motion.div>
+    <motion.div className='h-screen md:h-full md:grid grid-cols-2 px-11 md:px-14 items-center' variants={container} initial="hidden" animate="show">
+      <motion.div className='pb-20 md:pb-0 md:border-r-2 border-text' variants={item}><ProfileCard /></motion.div>
       <motion.div variants={item}>
         <LottieWrapper animationData={hi} height={'60%'} width={'60%'}/>
-        <div className=' max-h-fit'><Accordian /></div>
+        <div className='max-h-fit'><Accordian /></div>
       </motion.div>
     </motion.div>
   )

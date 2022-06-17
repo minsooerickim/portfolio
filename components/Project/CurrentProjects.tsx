@@ -32,21 +32,21 @@ const item = {
 
 export default function CurrentProjects({ currentProjects }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-      <motion.ul>
+      <ul>
         <h2 className="text-text flex justify-center">Current</h2>
         <motion.div       
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex-1 p-4 space-y-4 max-w-xl"
+          className="flex-1 p-4 space-y-4 resize-none"
         >
             {currentProjects.map((project: Key) => (
                 <motion.div key={project} variants={item}>
-                  {project ? <Item project={project}/> : <Skeleton />}
+                  <Item project={project}/>
                 </motion.div>
             ))}
         </motion.div>
-      </motion.ul>
+      </ul>
     )
 }
 
@@ -55,12 +55,13 @@ export function Item({ project }) {
     const toggleOpen = () => setIsOpen(!isOpen);
   
     return (
+      <div>
       <motion.li 
         layout
         whileHover={{ scale: 1.03 }} 
         transition={{ ease: 'easeInOut', duration: 0.1 }}
         whileTap={{ scale: 0.995}} 
-        className="bg-subBackground"  
+        className="bg-subBackground  resize-none"  
         onClick={toggleOpen} 
         initial={{ borderRadius: 10 }}
       >
@@ -77,5 +78,6 @@ export function Item({ project }) {
           />
           {isOpen && <ProjectDetails details={project.details} imgs={[]}/>}
       </motion.li>
+      </div>
     );
 }

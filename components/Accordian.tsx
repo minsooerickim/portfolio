@@ -53,7 +53,7 @@ export default function CustomizedAccordions() {
 
   return (
     <div className='flex justify-center items-center'>
-        <div className='space-y-2 w-6/12'>
+        <div className='space-y-2 md:w-6/12'>
             <Accordion sx={{ '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': { color: '#339989' } }} className='shadow-md rounded-lg bg-card' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                 <Typography className='text-normalText font-bold'>What tools do I use?</Typography>

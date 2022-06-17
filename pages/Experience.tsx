@@ -12,13 +12,13 @@ export default function Experience({ currentExperiences, pastExperiences }: Infe
     return (
         // <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
         <div>
-            <div className='flex justify-center p-20 text-normalText'>
+            <div className='flex justify-center md:p-20 text-normalText'>
                 <h1>Experience</h1>
             </div>
             <Page title='Experience'>
-                <motion.div layout className='grid grid-cols-3 gap-20'>
+                <motion.div layout className='md:grid md:grid-cols-3 gap-20'>
                     <CurrentExperience currentExperiences={currentExperiences} pastExperiences={undefined} />
-                    <div><div className='resize-none flex'><LottieWrapper animationData={experience} height={500} width={500}/></div></div>
+                    <div><div className='hidden resize-none md:flex'><LottieWrapper animationData={experience} height={500} width={500}/></div></div>
                     <PastExperience pastExperiences={pastExperiences} currentExperiences={undefined} />
                 </motion.div>
             </Page>
