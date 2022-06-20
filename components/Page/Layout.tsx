@@ -11,14 +11,18 @@ interface Props {
   title: string
   description: string
 }
-  
+
 /** Container for a page. */
 export function Layout({ children, title, description }: Props) {
   return (
     <div>
-      <NextSeo title={title} description={description} openGraph={{ title, description }} />
-      <motion.main 
-        className='flex flex-col justify-center items-center w-full min-h-screen'
+      <NextSeo
+        title={title}
+        description={description}
+        openGraph={{ title, description }}
+      />
+      <motion.main
+        className="flex flex-col justify-center items-center w-full"
         initial="hidden"
         animate="enter"
         variants={variants}

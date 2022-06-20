@@ -1,62 +1,59 @@
 import Head from 'next/head'
-import { useSession } from 'next-auth/react'
-
 import Header from '@/components/Header'
 import { Page } from '@/components/Page/Page'
+import { useSession, signIn } from 'next-auth/react'
+import Avatar from '@mui/material/Avatar'
+import Accordian from '@/components/Accordian'
+import ProfileCard from '@/components/ProfileCard'
+import { LottieWrapper } from '@/components/LottieWrapper'
+
+import hi from '../../lotties/hi.json'
+import { motion } from 'framer-motion'
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const item = {
+  hidden: {
+    opacity: 0,
+    x: '-100vw',
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+}
 
 export default function Landing() {
-  const { data: session, status } = useSession()
-  const loading = status === "loading"
-
-  return(
-    <div className="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-orange-700">
-      <img src="/assets/Colored-Shapes.svg" className="w-full" />
-      <div className="flex justify-center -mt-8">
-          <img src="https://i.imgur.com/8Km9tLL.jpg" className="rounded-full border-solid border-white border-2 -mt-3"/>
-      </div>
-    <div className="text-center px-3 pb-6 pt-2">
-      <h3 className="text-white text-sm bold font-sans">Minsoo Kim</h3>
-      <p className="mt-2 font-sans font-light text-white">Hello, I love coding!</p>
-    </div>
-      <div className="flex justify-center pb-3 text-white">
-        <div className="text-center mr-3 border-r pr-3">
-          <h2>4</h2>
-          <span>Projects</span>
+  return (
+    <motion.div
+      className="h-screen md:h-full md:grid grid-cols-2 px-11 md:px-14 items-center"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div
+        className="pb-20 md:pb-0 md:border-r-2 border-text"
+        variants={item}
+      >
+        <ProfileCard />
+      </motion.div>
+      <motion.div variants={item}>
+        <LottieWrapper animationData={hi} height={'60%'} width={'60%'} />
+        <div className="max-h-fit">
+          <Accordian />
         </div>
-        <div className="text-center">
-          <h2>20</h2>
-          <span>Tools</span>
-        </div>
-      </div>
-   </div>
+      </motion.div>
+    </motion.div>
   )
-  {/* return (
-    <Page title='Home'>
-      <div className='text-center'>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Header />
-        <main>
-          <div>
-            {loading && <div>Loading...</div>}
-            {
-              session &&
-                <>
-                <p style={{ marginBottom: '10px' }}> Welcome, {session.user!.name ?? session.user!.email}</p> <br />
-                <img src={session.user!.image!} alt="" />
-                </>
-              }
-            {
-              !session &&
-                <>
-                <img src="https://cdn.dribbble.com/users/759083/screenshots/6915953/2.gif" alt="" />
-                <p>GIF by <a href="https://dribbble.com/shots/6915953-Another-man-down/attachments/6915953-Another-man-down?mode=media">Another man</a> </p>
-                </>
-            }
-          </div>
-        </main>
-      </div>
-    </Page>
-  ) */}
 }

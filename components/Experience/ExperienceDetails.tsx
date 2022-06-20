@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 
-interface ProjectDetailProps {
+interface ExperienceDetailProps {
   details: string
   imgs: string[]
 }
-export default function ProjectDetails({ details, imgs }: ProjectDetailProps) {
+export default function ExperienceDetails({
+  details,
+  imgs,
+}: ExperienceDetailProps) {
   return (
-    <div className="p-4  box-border">
+    <div className="p-4">
       <motion.p className="p-4">{details}</motion.p>
       {imgs && (
         <div className="flex-1 p-4 space-y-4 max-w-xl">
