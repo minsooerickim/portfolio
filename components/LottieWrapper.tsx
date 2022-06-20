@@ -1,7 +1,7 @@
 import Lottie from 'react-lottie'
 
 export const LottieWrapper = ({ animationData, height, width }) => {
-  const defaultOptions  = {
+  const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animationData,

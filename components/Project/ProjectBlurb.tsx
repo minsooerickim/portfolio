@@ -7,8 +7,6 @@ import { useState } from 'react'
 import { Int32 } from 'mongodb'
 import router from 'next/router'
 import { useSession } from 'next-auth/react'
-
-// this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
 interface BlurbProps {
   title: string
   date: string

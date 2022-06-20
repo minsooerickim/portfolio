@@ -11,9 +11,9 @@ export function Page({ title, children, description }: Props) {
   return (
     <Layout title={title} description={description}>
       <Head>
-        <title>Minsoo Kim { title && ('| ' + title) }</title>
+        <title>Minsoo Kim {title && '| ' + title}</title>
       </Head>
-      <section className='flex flex-col w-full justify-center items-center'>
+      <section className="flex flex-col w-full justify-center items-center">
         {children}
       </section>
     </Layout>

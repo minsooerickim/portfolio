@@ -1,7 +1,12 @@
 import Lottie from 'react-lottie'
 
-export const LottieWrapperClick = ({ animationData, height, width, isPaused }) => {
-  const defaultOptions  = {
+export const LottieWrapperClick = ({
+  animationData,
+  height,
+  width,
+  isPaused,
+}) => {
+  const defaultOptions = {
     loop: false,
     autoplay: false,
     animationData: animationData,
@@ -9,5 +14,12 @@ export const LottieWrapperClick = ({ animationData, height, width, isPaused }) =
       preserveAspectRatio: 'xMidYMid slice',
     },
   }
-  return <Lottie options={defaultOptions} height={height} width={width} isPaused={isPaused}/>
+  return (
+    <Lottie
+      options={defaultOptions}
+      height={height}
+      width={width}
+      isPaused={isPaused}
+    />
+  )
 }
