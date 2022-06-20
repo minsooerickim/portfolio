@@ -50,7 +50,7 @@ export default function Landing() {
       </motion.div>
       <motion.div variants={item}>
         <LottieWrapper animationData={hi} height={'60%'} width={'60%'} />
-        <div className="max-h-fit">
+        <div className="max-h-fit pb-20">
           <Accordian />
         </div>
       </motion.div>

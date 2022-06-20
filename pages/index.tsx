@@ -11,14 +11,14 @@ import MobileNav from '@/components/NavBar/MobileNav'
 export default function Home() {
   return (
     // <span className='flex px-4 w-full bg-pattern bg-repeat bg-contain'>
-    <>
+    <div>
       <div className="justify-center flex align-center p-4 md:p-20">
         <Welcome />
       </div>
       <div className="flex flex-col w-full items-center">
         <Landing />
       </div>
-    </>
+    </div>
     // </span>
   )
 }

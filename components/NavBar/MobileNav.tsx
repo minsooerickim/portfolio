@@ -19,7 +19,9 @@ export default function BasicPagination() {
       <Pagination
         count={3}
         onChange={handleChange}
-        sx={{ '& .MuiButtonBase-root': { color: '#339989' } }}
+        sx={{
+          '& .MuiButtonBase-root': { color: '#339989' },
+        }}
       />
     </Stack>
   )
