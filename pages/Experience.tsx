@@ -68,8 +68,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            currentExperiences: data,
-            pastExperiences: data1,
+            currentExperiences: data || null,
+            pastExperiences: data1 || null,
         }
     }
 }
