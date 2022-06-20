@@ -39,7 +39,7 @@ export async function getStaticProps() {
                 .find({})
                 .toArray();
             experiences = JSON.parse(JSON.stringify(experiences));
-            return experiences
+            return experiences || null
         } catch {
             console.log('Unable to fetch currentExperience at the moment :(')
         }
@@ -54,7 +54,7 @@ export async function getStaticProps() {
                 .find({})
                 .toArray();
             experiences = JSON.parse(JSON.stringify(experiences));
-            return experiences
+            return experiences || null
         } catch {
             console.log('Unable to fetch pastExperience at the moment :(')
         }
