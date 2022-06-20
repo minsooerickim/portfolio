@@ -38,8 +38,8 @@ export async function getStaticProps() {
                 .collection("currentExperience")
                 .find({})
                 .toArray();
-            experiences = JSON.parse(JSON.stringify(experiences));
-            return experiences || null
+            console.log('pls')
+            return experiences
         } catch {
             console.log('Unable to fetch currentExperience at the moment :(')
         }
@@ -53,18 +53,20 @@ export async function getStaticProps() {
                 .collection("pastExperience")
                 .find({})
                 .toArray();
-            experiences = JSON.parse(JSON.stringify(experiences));
-            return experiences || null
+            console.log('hello')
+            return experiences
         } catch {
             console.log('Unable to fetch pastExperience at the moment :(')
         }
     }
     // const res = await getExperience()
     // const data = await res.json()
-    const data = await getExperience()
+    let experiences = await getExperience()
+    const data = JSON.parse(JSON.stringify(experiences));
     // const res1 = await getPastExperience()
     // const data1 = await res1.json()
-    const data1 = await getPastExperience()
+    let experiences1 = await getPastExperience()
+    const data1 = JSON.parse(JSON.stringify(experiences1));
 
     return {
         props: {
