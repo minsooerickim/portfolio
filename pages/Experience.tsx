@@ -6,6 +6,7 @@ import experience from '../lotties/experience.json'
 import { Page } from '@/components/Page/Page';
 import { InferGetStaticPropsType } from 'next';
 import { motion } from 'framer-motion';
+import clientPromise from '@/lib/mongodb';
 
 
 export default function Experience({ currentExperiences, pastExperiences }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -28,24 +29,42 @@ export default function Experience({ currentExperiences, pastExperiences }: Infe
 }
 
 export async function getStaticProps() {
-    const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/experience/current', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
-        Accept: "application/json; charset=UTF-8",
-      },
-    })
-    const data = await res.json()
-    const res1 = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/experience/past', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
-        Accept: "application/json; charset=UTF-8",
-      },
-    })
-    const data1 = await res1.json()
+    async function getExperience() {
+        try {
+            const isConnected = await clientPromise;
+            const db = isConnected.db(process.env.MONGODB_DB);
+            
+            let experiences = await db
+                .collection("currentExperience")
+                .find({})
+                .toArray();
+            experiences = JSON.parse(JSON.stringify(experiences));
+            return experiences
+        } catch {
+            console.log('Unable to fetch currentExperience at the moment :(')
+        }
+    }
+    async function getPastExperience() {
+        try {
+            const isConnected = await clientPromise;
+            const db = isConnected.db(process.env.MONGODB_DB);
+            
+            let experiences = await db
+                .collection("pastExperience")
+                .find({})
+                .toArray();
+            experiences = JSON.parse(JSON.stringify(experiences));
+            return experiences
+        } catch {
+            console.log('Unable to fetch pastExperience at the moment :(')
+        }
+    }
+    // const res = await getExperience()
+    // const data = await res.json()
+    const data = await getExperience()
+    // const res1 = await getPastExperience()
+    // const data1 = await res1.json()
+    const data1 = await getPastExperience()
 
     return {
         props: {

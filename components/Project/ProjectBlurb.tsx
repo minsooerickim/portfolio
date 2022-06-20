@@ -55,6 +55,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
   
   const updateLikes = async() => {
     const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/updateLikes', {
+    // const res = await fetch('https://localhost:3000/api/projects/updateLikes', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -79,6 +80,7 @@ function ProjectBody ({ title, date, description, stack, githubLink, webLink, li
 
 
     const res = await fetch('https://portfolio-ouj1fs8j7-minsooerickim.vercel.app/api/projects/checkLiked', {
+      // const res = await fetch('https://localhost:3000/api/projects/checkLiked', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
