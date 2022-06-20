@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import EmailIcon from '@mui/icons-material/Email'
 import ArticleIcon from '@mui/icons-material/Article'
+import { StyledEngineProvider } from '@mui/material/styles'
 
 const actions = [
   { icon: <ArticleIcon />, name: 'Resume' },
@@ -36,37 +37,42 @@ export default function BasicSpeedDial() {
     }
   }
   return (
-    <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
-      <SpeedDial
-        ariaLabel="SpeedDial"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
-        icon={
-          <SpeedDialIcon sx={{ '& .MuiSvgIcon-root': { color: '#339989' } }} />
-        }
-        FabProps={{
-          sx: {
-            '&:hover': {
-              bgcolor: 'transparent',
-            },
-          },
-        }}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={(e) => {
-              handleClick(e, action.name)
-            }}
-            FabProps={{
-              sx: {
-                color: '#339989',
+    <StyledEngineProvider>
+      <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+        <SpeedDial
+          ariaLabel="SpeedDial"
+          sx={{ position: 'absolute', bottom: 16, right: 16 }}
+          icon={
+            <SpeedDialIcon
+              sx={{ '& .MuiSvgIcon-root': { color: '#339989' } }}
+            />
+          }
+          FabProps={{
+            sx: {
+              '&:hover': {
+                bgcolor: 'transparent',
               },
-            }}
-          />
-        ))}
-      </SpeedDial>
-    </Box>
+              bgColor: 'transparent',
+            },
+          }}
+        >
+          {actions.map((action) => (
+            <SpeedDialAction
+              key={action.name}
+              icon={action.icon}
+              tooltipTitle={action.name}
+              onClick={(e) => {
+                handleClick(e, action.name)
+              }}
+              FabProps={{
+                sx: {
+                  color: '#339989',
+                },
+              }}
+            />
+          ))}
+        </SpeedDial>
+      </Box>
+    </StyledEngineProvider>
   )
 }

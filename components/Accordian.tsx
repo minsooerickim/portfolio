@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createTheme, styled, ThemeProvider } from '@mui/material/styles'
+import { styled, StyledEngineProvider } from '@mui/material/styles'
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp'
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion'
 import MuiAccordionSummary, {
@@ -52,78 +52,89 @@ export default function CustomizedAccordions() {
     }
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="space-y-2 md:w-6/12">
-        <Accordion
-          sx={{
-            '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
-              color: '#339989',
-            },
-          }}
-          className="shadow-md rounded-lg bg-card"
-          expanded={expanded === 'panel1'}
-          onChange={handleChange('panel1')}
-        >
-          <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-            <Typography className="text-normalText font-bold">
-              What tools do I use?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography className="text-secondaryNormalText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          sx={{
-            '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
-              color: '#339989',
-            },
-          }}
-          className="shadow-md rounded-lg bg-card"
-          expanded={expanded === 'panel2'}
-          onChange={handleChange('panel2')}
-        >
-          <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-            <Typography className="text-normalText font-bold">
-              Favorite Project?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography className="text-secondaryNormalText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          sx={{
-            '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
-              color: '#339989',
-            },
-          }}
-          className="shadow-md rounded-lg bg-card"
-          expanded={expanded === 'panel3'}
-          onChange={handleChange('panel3')}
-        >
-          <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-            <Typography className="text-normalText font-bold">
-              Think of another question...
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography className="text-secondaryNormalText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+    <StyledEngineProvider injectFirst>
+      <div className="flex justify-center items-center">
+        <div className="space-y-2 md:w-6/12">
+          <Accordion
+            sx={{
+              '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
+                color: '#339989',
+              },
+            }}
+            className="shadow-md rounded-lg bg-card"
+            expanded={expanded === 'panel1'}
+            onChange={handleChange('panel1')}
+          >
+            <AccordionSummary
+              aria-controls="panel1d-content"
+              id="panel1d-header"
+            >
+              <Typography className="text-normalText font-bold">
+                What tools do I use?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography className="text-secondaryNormalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget. Lorem ipsum dolor
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            sx={{
+              '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
+                color: '#339989',
+              },
+            }}
+            className="shadow-md rounded-lg bg-card"
+            expanded={expanded === 'panel2'}
+            onChange={handleChange('panel2')}
+          >
+            <AccordionSummary
+              aria-controls="panel2d-content"
+              id="panel2d-header"
+            >
+              <Typography className="text-normalText font-bold">
+                Favorite Project?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography className="text-secondaryNormalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget. Lorem ipsum dolor
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            sx={{
+              '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {
+                color: '#339989',
+              },
+            }}
+            className="shadow-md rounded-lg bg-card"
+            expanded={expanded === 'panel3'}
+            onChange={handleChange('panel3')}
+          >
+            <AccordionSummary
+              aria-controls="panel3d-content"
+              id="panel3d-header"
+            >
+              <Typography className="text-normalText font-bold">
+                Think of another question...
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography className="text-secondaryNormalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget. Lorem ipsum dolor
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </div>
       </div>
-    </div>
+    </StyledEngineProvider>
   )
 }
