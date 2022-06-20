@@ -26,6 +26,8 @@ export default function Projects({ currentProjects, pastProjects }: InferGetStat
   )
 }
 
+// You should not fetch an API Route from getStaticProps or getStaticPaths. Instead, write your server-side code directly in getStaticProps or getStaticPaths (or call a helper function).
+// https://nextjs.org/learn/basics/api-routes/api-routes-details
 export async function getStaticProps() {
   async function getProjects() {
       try {
