@@ -13,7 +13,7 @@ export default function Landing() {
         <img src="/assets/Colored-Shapes.svg" className="" />
         <div className="flex justify-center -mt-8">
           <img
-            src="https://i.imgur.com/y72AJR2.png"
+            src="https://i.imgur.com/wIkQEfn.jpg?1"
             className="w-6/12 rounded-full border-solid  border-2 -mt-3"
           />
         </div>
