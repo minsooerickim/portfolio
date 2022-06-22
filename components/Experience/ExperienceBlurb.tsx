@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { FiGithub } from 'react-icons/fi'
 import { CgWebsite } from 'react-icons/cg'
-// this project listing approach is taken from https://github.com/claynaut/jspescas.io/blob/master/components/Project/components.tsx
+
+// inspired from the one and only https://www.jspescas.io/projects
 interface LinkProps {
   children: React.ReactNode | React.ReactNode[]
   link: string
@@ -17,9 +18,7 @@ const ExternalLinkWrapper = ({ children, link }: LinkProps) => (
   </a>
 )
 const InternalLinkWrapper = ({ children, link }: LinkProps) => (
-  // <Link passHref href={link}>
   <span className="cursor-pointer">{children}</span>
-  /* </Link> */
 )
 
 interface BlurbProps {

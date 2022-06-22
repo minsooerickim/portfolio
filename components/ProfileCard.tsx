@@ -1,12 +1,8 @@
-import { useSession } from 'next-auth/react'
 import { LottieWrapper } from './LottieWrapper'
 import rocket from '../lotties/rocket.json'
 import tools from '../lotties/tools.json'
 
 export default function Landing() {
-  const { data: session, status } = useSession()
-  const loading = status === 'loading'
-
   return (
     <div className="flex justify-center items-center">
       <div className="md:w-6/12 rounded-3xl overflow-hidden shadow-xl bg-card ">

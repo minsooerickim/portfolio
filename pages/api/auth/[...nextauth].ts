@@ -48,7 +48,6 @@ export default async function auth(req, res) {
     ],
     callbacks: {
       async session({ session, user }: any) {
-        // Send properties to the client, like an access_token from a provider.
         session.user.firstname = String(user.name.first)
         session.user.lastname = String(user.name.last)
         session.user.id = user.id
@@ -56,8 +55,8 @@ export default async function auth(req, res) {
       },
     },
     pages: {
-      verifyRequest: '/verify-signin', // Used for check email page
-      newUser: '/', // Redirect new users to apply (replace to '/' when apps close)
+      verifyRequest: '/verify-signin',
+      newUser: '/',
     },
     secret: process.env.SECRET,
   })
