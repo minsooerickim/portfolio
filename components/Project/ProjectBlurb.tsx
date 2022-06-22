@@ -64,16 +64,19 @@ function ProjectBody({
   }
 
   const updateLikes = async () => {
-    const res = await fetch(process.env.VERCEL_URL, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
-        Accept: 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify({ title }),
-    })
+    const res = await fetch(
+      process.env.VERCEL_URL + '/api/projects/updateLikes',
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+          Accept: 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({ title }),
+      }
+    )
     await res.json()
     if (res.status === 200) {
       console.log('Updated Likes!')
@@ -91,16 +94,19 @@ function ProjectBody({
       return
     }
 
-    const res = await fetch(process.env.VERCEL_URL, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
-        Accept: 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify({ title }),
-    })
+    const res = await fetch(
+      process.env.VERCEL_URL + '/api/projects/checkLiked',
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+          Accept: 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({ title }),
+      }
+    )
     const result = await res.json()
     if (res.status === 200) {
       console.log('Got LikedUsers!')
