@@ -4,9 +4,10 @@ import { CgWebsite } from 'react-icons/cg'
 import { LottieWrapperClick } from '../LottieWrapperClick'
 import like from '../../lotties/like.json'
 import { useState } from 'react'
-import { Int32 } from 'mongodb'
 import router from 'next/router'
 import { useSession } from 'next-auth/react'
+
+// inspired from the one and only https://www.jspescas.io/projects
 interface BlurbProps {
   title: string
   date: string
@@ -33,9 +34,7 @@ const ExternalLinkWrapper = ({ children, link }: LinkProps) => (
   </a>
 )
 const InternalLinkWrapper = ({ children, link }: LinkProps) => (
-  // <Link passHref href={link}>
   <span className="cursor-pointer">{children}</span>
-  /* </Link> */
 )
 interface BodyProps {
   title: string

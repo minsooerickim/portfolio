@@ -70,14 +70,14 @@ export default function CustomizedAccordions() {
               id="panel1d-header"
             >
               <Typography className="text-normalText font-bold">
-                What tools do I use?
+                Who do I do?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className="text-secondaryNormalText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget. Lorem ipsum dolor
+                I am a Junior at UC Riverside studying Computer Science I love
+                Software Engineering and I hope to be a MANGA Engineer one day
+                ^-^
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -101,9 +101,9 @@ export default function CustomizedAccordions() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography className="text-secondaryNormalText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget. Lorem ipsum dolor
+                It would probably be wall-status-bets.io! I utilized reddit's
+                API and I learned a ton from building it. You can check it out
+                in more detail under Projects tab
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -122,14 +122,14 @@ export default function CustomizedAccordions() {
               id="panel3d-header"
             >
               <Typography className="text-normalText font-bold">
-                Think of another question...
+                Hobbies?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className="text-secondaryNormalText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget. Lorem ipsum dolor
+                Besides software engineering, I love hacking! I am on the board
+                of the CyberSecurity@UCR club. We placed 1st in the most recent
+                competition!
               </Typography>
             </AccordionDetails>
           </Accordion>

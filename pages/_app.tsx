@@ -6,7 +6,6 @@ import { ThemeProvider } from 'next-themes'
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 import { Nav } from '@/components/NavBar/Nav'
-import Footer from '@/components/Footer'
 import SpeedDial from '@/components/SpeedDial'
 import MobileNav from '@/components/NavBar/MobileNav'
 

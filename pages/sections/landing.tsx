@@ -1,7 +1,3 @@
-import Head from 'next/head'
-import Header from '@/components/Header'
-import { Page } from '@/components/Page/Page'
-import Avatar from '@mui/material/Avatar'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import Accordian from '@/components/Accordian'
 import ProfileCard from '@/components/ProfileCard'

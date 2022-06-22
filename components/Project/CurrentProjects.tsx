@@ -5,7 +5,7 @@ import ProjectBlurb from './ProjectBlurb'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ProjectDetails from './ProjectDetails'
-import Skeleton from '@/components/Skeleton'
+
 const container = {
   hidden: { opacity: 0 },
   show: {

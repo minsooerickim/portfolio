@@ -12,7 +12,6 @@ export default function Projects({
   pastProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    // <span className='flex justify-center px-40 w-full bg-pattern bg-repeat bg-contain'>
     <div>
       <div className="flex justify-center md:p-20 text-normalText">
         <h1>Projects</h1>
@@ -35,7 +34,6 @@ export default function Projects({
         </motion.div>
       </Page>
     </div>
-    // </span>
   )
 }
 
