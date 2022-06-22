@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
 import { Page } from '@/components/Page/Page'
-import { useSession, signIn } from 'next-auth/react'
 import Avatar from '@mui/material/Avatar'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import Accordian from '@/components/Accordian'
 import ProfileCard from '@/components/ProfileCard'
 import { LottieWrapper } from '@/components/LottieWrapper'
@@ -35,6 +35,16 @@ const item = {
 }
 
 export default function Landing() {
+  const { data: session } = useSession()
+  const handleSignin = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    signIn()
+  }
+
+  const handleSignout = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    signOut()
+  }
   return (
     <motion.div
       className="h-screen md:h-full md:grid grid-cols-2 px-11 md:px-14 items-center"
@@ -42,6 +52,30 @@ export default function Landing() {
       initial="hidden"
       animate="show"
     >
+      <div className="flex md:hidden justify-center pb-4">
+        {session && (
+          <motion.a
+            whileHover={{ scale: 1.05, backgroundColor: '#278274' }}
+            whileTap={{ scale: 0.995 }}
+            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            onClick={handleSignout}
+            className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer"
+          >
+            Sign out
+          </motion.a>
+        )}
+        {!session && (
+          <motion.a
+            whileHover={{ scale: 1.05, backgroundColor: '#278274' }}
+            whileTap={{ scale: 0.995 }}
+            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            onClick={handleSignin}
+            className="bg-text focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center mr-3 md:mr-0 cursor-pointer"
+          >
+            Sign in
+          </motion.a>
+        )}
+      </div>
       <motion.div
         className="pb-20 md:pb-0 md:border-r-2 border-text"
         variants={item}

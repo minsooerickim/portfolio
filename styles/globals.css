@@ -11,8 +11,8 @@
     --overlay: #00000080;
     --sub: #375264;
     --sub-secondary: #7de2d1;
-    --sub-highlight: #3F5D72;
-    --sub-bright: #6F8CA0;
+    --sub-highlight: #3f5d72;
+    --sub-bright: #6f8ca0;
     --background: #fffafb;
     --subBackground: #f0f3f5;
     --normalText: #000000;
@@ -22,20 +22,20 @@
 
   [data-theme='light'] {
     --primary: #ccdbdc;
-    --card: #FFF;
+    --card: #fff;
     --text: #339989;
     --overlay: #00000059;
-    --sub: #B9CCDC;
+    --sub: #b9ccdc;
     --sub-secondary: #7de2d1;
-    --sub-highlight: #92A6B9;
-    --sub-bright: #5B7690;
+    --sub-highlight: #92a6b9;
+    --sub-bright: #5b7690;
     --background: #fffafb;
     --subBackground: #f7f7f7;
     --normalText: #000000;
     --secondaryNormalText: #2b2c28;
     /* --pattern: url('/assets/Hexagon.svg'); */
   }
-  
+
   [data-theme='dark'] {
     --primary: #ccdbdc;
     --card: #2b2c28;
@@ -43,16 +43,18 @@
     --overlay: #00000080;
     --sub: #375264;
     --sub-secondary: #7de2d1;
-    --sub-highlight: #3F5D72;
-    --sub-bright: #6F8CA0;
+    --sub-highlight: #3f5d72;
+    --sub-bright: #6f8ca0;
     --background: #131515;
     --subBackground: #1e1f1c;
-    --normalText: #FFFFFF;
+    --normalText: #ffffff;
     --secondaryNormalText: #ccdbdc;
     /* --pattern: url('/assets/Hexagon.svg'); */
   }
   /* used to debug */
-  /* * { border: 1px solid red; } */
+  * {
+    /* border: 1px solid red; */
+  }
   body {
     max-height: 100vh;
     background: var(--background);
