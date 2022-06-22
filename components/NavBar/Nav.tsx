@@ -21,16 +21,13 @@ export function Nav() {
     <>
       <header className="bg-background lg:px-16 px-6 flex flex-wrap items-center lg:py-0 sticky top-0 z-50">
         <div className="flex-1 flex justify-between items-center">
-          <a
-            href="/"
-            className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor"
-          >
+          <a href="/" className="lg:ml-4 flex items-center pointer-cursor">
             <LottieWrapper
               animationData={profile}
-              width={'30%'}
-              height={'30%'}
+              width={'20%'}
+              height={'20%'}
             />
-            <p className="text-normalText font-bold">Minsoo Kim</p>
+            <p className="font-semibold text-normalText">Minsoo Kim</p>
           </a>
         </div>
         <div className="p-4 md:hidden">
