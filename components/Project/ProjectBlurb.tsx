@@ -65,7 +65,7 @@ function ProjectBody({
 
   const updateLikes = async () => {
     const res = await fetch(
-      process.env.VERCEL_URL + '/api/projects/updateLikes',
+      'https://minsoo.vercel.app/api/projects/updateLikes',
       {
         method: 'PUT',
         headers: {
@@ -95,7 +95,7 @@ function ProjectBody({
     }
 
     const res = await fetch(
-      process.env.VERCEL_URL + '/api/projects/checkLiked',
+      'https://minsoo.vercel.app/api/projects/checkLiked',
       {
         method: 'PUT',
         headers: {
