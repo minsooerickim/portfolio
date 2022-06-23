@@ -37,13 +37,14 @@ export default function CurrentProjects({
     <ul>
       <h2 className="text-text flex justify-center">Current</h2>
       <motion.div
+        layout
         variants={container}
         initial="hidden"
         animate="show"
         className="flex-1 p-4 space-y-4 resize-none"
       >
         {currentProjects.map((project: Key) => (
-          <motion.div key={project} variants={item}>
+          <motion.div layout key={project} variants={item}>
             <Item project={project} />
           </motion.div>
         ))}
@@ -61,9 +62,8 @@ export function Item({ project }) {
       <motion.li
         layout
         whileHover={{ scale: 1.03 }}
-        transition={{ ease: 'easeInOut', duration: 0.1 }}
-        whileTap={{ scale: 0.995 }}
-        className="bg-subBackground  resize-none"
+        transition={{ ease: 'easeInOut', duration: 0.2 }}
+        className="bg-subBackground"
         onClick={toggleOpen}
         initial={{ borderRadius: 10 }}
       >

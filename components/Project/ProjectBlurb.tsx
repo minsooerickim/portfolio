@@ -67,6 +67,7 @@ function ProjectBody({
     const res = await fetch(
       'https://minsoo.vercel.app/api/projects/updateLikes',
       {
+        mode: 'no-cors',
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -97,6 +98,7 @@ function ProjectBody({
     const res = await fetch(
       'https://minsoo.vercel.app/api/projects/checkLiked',
       {
+        mode: 'no-cors',
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
