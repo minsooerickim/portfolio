@@ -18,6 +18,7 @@ interface BlurbProps {
   webLink?: string
   likes: number
   likedUsers: string[]
+  current: boolean
 }
 interface LinkProps {
   children: React.ReactNode | React.ReactNode[]
@@ -45,6 +46,7 @@ interface BodyProps {
   webLink?: string
   likes: number
   likedUsers: string[]
+  current: boolean
 }
 
 function ProjectBody({
@@ -56,6 +58,7 @@ function ProjectBody({
   webLink,
   likes,
   likedUsers,
+  current
 }: BodyProps) {
   const refreshData = () => {
     //used to update likes taking advantage of SSR
@@ -64,8 +67,8 @@ function ProjectBody({
   const { data: session, status } = useSession()
   const updateLikes = async () => {
     const res = await fetch(
-      'https://minsoo.vercel.app/api/projects/updateLikes',
-      // 'http://localhost:3000/api/projects/updateLikes',
+      // 'https://minsoo.vercel.app/api/projects/updateLikes',
+      current ? 'http://localhost:3000/api/projects/updateCurrLikes':'http://localhost:3000/api/projects/updatePastLikes',
       {
         mode: 'no-cors',
         method: 'POST',
@@ -96,8 +99,8 @@ function ProjectBody({
     }
 
     const res = await fetch(
-      'https://minsoo.vercel.app/api/projects/checkLiked',
-      // 'http://localhost:3000/api/projects/checkLiked',
+      // 'https://minsoo.vercel.app/api/projects/checkLiked',
+      current ? 'http://localhost:3000/api/projects/checkCurrLiked':'http://localhost:3000/api/projects/checkPastLiked',
       {
         method: 'POST',
         body: JSON.stringify({"title": title, "id": session.user.id}),
@@ -198,6 +201,7 @@ export default function ProjectBlurb({
   external,
   likes,
   likedUsers,
+  current
 }: BlurbProps) {
   return (
     <>
@@ -213,6 +217,7 @@ export default function ProjectBlurb({
               webLink={webLink}
               likes={likes}
               likedUsers={likedUsers}
+              current={current}
             />
           </ExternalLinkWrapper>
         ) : (
@@ -226,6 +231,7 @@ export default function ProjectBlurb({
               webLink={webLink}
               likes={likes}
               likedUsers={likedUsers}
+              current={current}
             />
           </InternalLinkWrapper>
         )
@@ -240,6 +246,7 @@ export default function ProjectBlurb({
             webLink={webLink}
             likes={likes}
             likedUsers={likedUsers}
+            current={current}
           />
         </span>
       )}

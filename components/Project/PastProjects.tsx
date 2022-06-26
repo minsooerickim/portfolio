@@ -74,6 +74,7 @@ export function Item({ project }) {
         stack={project.stack}
         likes={project.likes}
         likedUsers={project.likedUsers}
+        current={false}
       />
       {isOpen && (
         <ProjectDetails imgs={project.imgs} details={project.details} />
