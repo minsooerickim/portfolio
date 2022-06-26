@@ -67,8 +67,8 @@ function ProjectBody({
   const { data: session, status } = useSession()
   const updateLikes = async () => {
     const res = await fetch(
-      // 'https://minsoo.vercel.app/api/projects/updateLikes',
-      current ? 'http://localhost:3000/api/projects/updateCurrLikes':'http://localhost:3000/api/projects/updatePastLikes',
+      current ? 'https://minsoo.vercel.app/api/projects/updateCurrLikes':'https://minsoo.vercel.app/api/projects/updatePastLikes',
+      // current ? 'http://localhost:3000/api/projects/updateCurrLikes':'http://localhost:3000/api/projects/updatePastLikes',
       {
         mode: 'no-cors',
         method: 'POST',
@@ -99,8 +99,8 @@ function ProjectBody({
     }
 
     const res = await fetch(
-      // 'https://minsoo.vercel.app/api/projects/checkLiked',
-      current ? 'http://localhost:3000/api/projects/checkCurrLiked':'http://localhost:3000/api/projects/checkPastLiked',
+      current ? 'https://minsoo.vercel.app/api/projects/checkCurrLiked':'https://minsoo.vercel.app/api/projects/checkPastLiked',
+      // current ? 'http://localhost:3000/api/projects/checkCurrLiked':'http://localhost:3000/api/projects/checkPastLiked',
       {
         method: 'POST',
         body: JSON.stringify({"title": title, "id": session.user.id}),
