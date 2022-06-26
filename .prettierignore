@@ -1,3 +1,4 @@
 tailwind.config.js
 checkLiked.ts
 ProjectBlurb.tsx
+ProjectDetails.tsx

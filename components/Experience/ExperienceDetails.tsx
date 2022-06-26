@@ -1,7 +1,5 @@
-import { motion } from 'framer-motion'
-
 interface ExperienceDetailProps {
-  details: string
+  details: string[]
   imgs: string[]
 }
 export default function ExperienceDetails({
@@ -10,7 +8,13 @@ export default function ExperienceDetails({
 }: ExperienceDetailProps) {
   return (
     <div className="p-4">
-      <motion.p className="p-4">{details}</motion.p>
+      {details && (
+        <div className="p-4">
+          {details.map((detail) => (
+            <p>{detail}</p>
+          ))}
+        </div>
+      )}
       {imgs && (
         <div className="flex-1 p-4 space-y-4 max-w-xl">
           {imgs.map((img) => (
