@@ -27,11 +27,11 @@ export default function Experience({
             pastExperiences={undefined}
           />
           <div>
-            <div className="hidden resize-none md:flex">
+            <div className="hidden md:flex min-w-4 m-auto">
               <LottieWrapper
                 animationData={experience}
-                height={500}
-                width={500}
+                height={'100%'}
+                width={'100%'}
               />
             </div>
           </div>
