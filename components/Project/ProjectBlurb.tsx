@@ -57,25 +57,25 @@ function ProjectBody({
   likes,
   likedUsers,
 }: BodyProps) {
-  const { data: session, status } = useSession()
   const refreshData = () => {
     //used to update likes taking advantage of SSR
     router.replace(router.asPath)
   }
-
+  const { data: session, status } = useSession()
   const updateLikes = async () => {
     const res = await fetch(
       'https://minsoo.vercel.app/api/projects/updateLikes',
+      // 'http://localhost:3000/api/projects/updateLikes',
       {
         mode: 'no-cors',
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'User-Agent':
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
           Accept: 'application/json; charset=UTF-8',
         },
-        body: JSON.stringify({ title }),
+        body: JSON.stringify({"title": title, "id": session.user.id}),
       }
     )
     await res.json()
@@ -97,16 +97,10 @@ function ProjectBody({
 
     const res = await fetch(
       'https://minsoo.vercel.app/api/projects/checkLiked',
+      // 'http://localhost:3000/api/projects/checkLiked',
       {
-        mode: 'no-cors',
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
-          Accept: 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({ title }),
+        method: 'POST',
+        body: JSON.stringify({"title": title, "id": session.user.id}),
       }
     )
     const result = await res.json()
