@@ -8,7 +8,7 @@ export default function ProjectDetails({ details, imgs }: ProjectDetailProps) {
         {details && (
           <div className='p-4'>
             {details.map((detail) => (
-              <p>{detail}</p>
+              <p key={detail}>{detail}</p>
             ))}
           </div>
         )}

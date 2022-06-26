@@ -11,7 +11,7 @@ export default function ExperienceDetails({
       {details && (
         <div className="p-4">
           {details.map((detail) => (
-            <p>{detail}</p>
+            <p key={detail}>{detail}</p>
           ))}
         </div>
       )}
