@@ -23,8 +23,12 @@ export default function Projects({
             pastProjects={undefined}
           />
           <div>
-            <div className="hidden resize-none md:flex">
-              <LottieWrapper animationData={project} height={500} width={500} />
+            <div className="hidden md:flex min-w-4 m-auto">
+              <LottieWrapper
+                animationData={project}
+                height={'100%'}
+                width={'100%'}
+              />
             </div>
           </div>
           <PastProjects
