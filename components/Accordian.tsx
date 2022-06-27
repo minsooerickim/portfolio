@@ -70,7 +70,7 @@ export default function CustomizedAccordions() {
               id="panel1d-header"
             >
               <Typography className="text-normalText font-bold">
-                Who do I do?
+                Who am I?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

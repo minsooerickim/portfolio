@@ -27,6 +27,7 @@ interface BlurbProps {
   date: string
   description: string
   stack: string[]
+  external?: boolean
   location: string
   githubLink?: string
   webLink?: string
@@ -83,6 +84,7 @@ const ExperienceBody = ({
             whileTap={{ scale: 0.995 }}
             href={webLink}
             className="z-2"
+            onClick={(event) => event.stopPropagation()}
           >
             <CgWebsite />
           </motion.a>
@@ -94,6 +96,7 @@ const ExperienceBody = ({
             whileTap={{ scale: 0.995 }}
             href={githubLink}
             className="z-2"
+            onClick={(event) => event.stopPropagation()}
           >
             <FiGithub />
           </motion.a>
@@ -109,6 +112,7 @@ export default function ProjectBlurb({
   description,
   stack,
   location,
+  external,
   githubLink,
   webLink,
 }: BlurbProps) {
