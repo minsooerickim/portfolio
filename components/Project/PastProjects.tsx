@@ -59,6 +59,7 @@ export function Item({ project }) {
   return (
     <motion.li
       layout
+      whileHover={{ scale: 1.03 }}
       transition={{ ease: 'easeInOut', duration: 0.2 }}
       className="bg-subBackground"
       onClick={toggleOpen}
