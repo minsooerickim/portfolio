@@ -31,7 +31,7 @@ export default function Landing() {
               <LottieWrapper animationData={rocket} height={80} width={80} />
             </div>
             <div className=" inline-block">
-              <h2 className="text-text">4</h2>
+              <h2 className="text-text">11</h2>
               <span className="text-normal">Projects</span>
             </div>
           </div>
