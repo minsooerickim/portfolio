@@ -40,7 +40,7 @@ export default function PastProjects({
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex-1 p-4 space-y-4"
+        className="flex-1 p-4 space-y-4 max-w-2xl"
       >
         {pastProjects.map((project: Key) => (
           <motion.div key={project} variants={item}>

@@ -13,17 +13,17 @@ export default function Projects({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <div className="flex justify-center lg:p-20 text-normalText">
+      <div className="flex justify-center xl:p-20 text-normalText">
         <h1>Projects</h1>
       </div>
       <Page title="Projects" description="list of my current/past projects">
-        <motion.div className="lg:grid lg:grid-cols-3 gap-20">
+        <motion.div layout className="xl:grid xl:grid-cols-3 gap-20">
           <CurrentProjects
             currentProjects={currentProjects}
             pastProjects={undefined}
           />
           <div>
-            <div className="hidden lg:flex min-w-4 m-auto">
+            <div className="hidden xl:flex min-w-4 m-auto">
               <LottieWrapper
                 animationData={project}
                 height={'100%'}

@@ -128,7 +128,7 @@ function ProjectBody({
   }
 
   return (
-    <motion.div className="drop-shadow-xl flex-col p-5 rounded-lg bg-card hover:bg-border resize-none">
+    <motion.div className="drop-shadow-xl group flex flex-col w-full p-5 rounded-lg bg-card hover:bg-border cursor-pointer">
       <div className="flex flex-col mb-3 font-semibold">
         <div className="flex items-center">
           <h3 className="text-text-normalText items-center">{title}</h3>
@@ -161,7 +161,7 @@ function ProjectBody({
             </div>
           ))}
         </div>
-        <div className="flex flex-wrap mt-5 gap-1.5 items-center">
+        <div className="flex flex-wrap mt-5 gap-1.5">
           {webLink && (
             <motion.a
               whileHover={{ scale: 1.2 }}

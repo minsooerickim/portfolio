@@ -40,7 +40,7 @@ export default function CurrentExperience({
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex-1 p-4 space-y-4 max-w-xl"
+        className="flex-1 p-4 space-y-4 max-w-2xl"
       >
         {currentExperiences.map((experience: Key) => (
           <motion.div key={experience} variants={item}>

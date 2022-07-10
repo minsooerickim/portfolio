@@ -14,20 +14,20 @@ export default function Experience({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <div className="flex justify-center md:p-20 text-normalText">
+      <div className="flex justify-center xl:p-20 text-normalText">
         <h1>Experience</h1>
       </div>
       <Page
         title="Experience"
         description="list of my current/past experiences"
       >
-        <motion.div layout className="md:grid md:grid-cols-3 gap-20">
+        <motion.div layout className="xl:grid xl:grid-cols-3 gap-20">
           <CurrentExperience
             currentExperiences={currentExperiences}
             pastExperiences={undefined}
           />
           <div>
-            <div className="hidden md:flex min-w-4 m-auto">
+            <div className="hidden xl:flex min-w-4 m-auto">
               <LottieWrapper
                 animationData={experience}
                 height={'100%'}
