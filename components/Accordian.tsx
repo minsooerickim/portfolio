@@ -54,7 +54,7 @@ export default function CustomizedAccordions() {
   return (
     <StyledEngineProvider injectFirst>
       <div className="flex justify-center items-center">
-        <div className="space-y-2 md:w-6/12">
+        <div className="space-y-2 lg:w-6/12">
           <Accordion
             sx={{
               '& .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium': {

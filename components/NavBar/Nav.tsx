@@ -32,11 +32,11 @@ export function Nav() {
             <p className="font-semibold text-normalText">Minsoo Kim</p>
           </a>
         </div>
-        <div className="p-4 md:hidden">
+        <div className="p-4 lg:hidden">
           <Switch />
         </div>
         <nav>
-          <ul className="hidden md:flex items-center justify-between text-base pt-4 lg:pt-0">
+          <ul className="hidden lg:flex items-center justify-between text-base pt-4 lg:pt-0">
             <motion.li
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.995 }}

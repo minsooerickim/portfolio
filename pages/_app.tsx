@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <div className="fixed right-0 bottom-0 pb-14 md:p-4 z-10">
             <SpeedDial />
           </div>
-          <div className="fixed md:hidden bottom-0 z-10 left-1/2 transform -translate-x-1/2 pb-4">
+          <div className="fixed lg:hidden bottom-0 z-10 left-1/2 transform -translate-x-1/2 pb-4">
             <MobileNav />
           </div>
         </ThemeProvider>
