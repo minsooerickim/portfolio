@@ -41,7 +41,7 @@ export default function CurrentProjects({
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex-1 p-4 space-y-4 resize-none"
+        className="flex-1 p-4 space-y-4"
       >
         {currentProjects.map((project: Key) => (
           <motion.div layout key={project} variants={item}>
@@ -79,7 +79,9 @@ export function Item({ project }) {
           likedUsers={project.likedUsers}
           current={true}
         />
-        {isOpen && <ProjectDetails details={project.details} imgs={[]} />}
+        {isOpen && (
+          <ProjectDetails details={project.details} imgs={project.imgs} />
+        )}
       </motion.li>
     </div>
   )
