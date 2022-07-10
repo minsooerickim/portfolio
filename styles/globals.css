@@ -52,9 +52,9 @@
     /* --pattern: url('/assets/Hexagon.svg'); */
   }
   /* used to debug */
-  * {
-    /* border: 1px solid red; */
-  }
+  /* * {
+    border: 1px solid red;
+  } */
   body {
     max-height: 100vh;
     background: var(--background);

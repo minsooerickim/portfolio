@@ -43,12 +43,12 @@ export default function Landing() {
   }
   return (
     <motion.div
-      className="h-screen md:h-full md:grid grid-cols-2 px-11 md:px-14 items-center"
+      className="h-screen lg:h-full lg:grid grid-cols-2 px-11 lg:px-14 items-center"
       variants={container}
       initial="hidden"
       animate="show"
     >
-      <div className="flex md:hidden justify-center pb-4">
+      <div className="flex lg:hidden justify-center pb-4">
         {session && (
           <motion.a
             whileHover={{ scale: 1.05, backgroundColor: '#278274' }}
@@ -73,7 +73,7 @@ export default function Landing() {
         )}
       </div>
       <motion.div
-        className="pb-20 md:pb-0 md:border-r-2 border-text"
+        className="pb-20 lg:pb-0 lg:border-r-2 border-text"
         variants={item}
       >
         <ProfileCard />
